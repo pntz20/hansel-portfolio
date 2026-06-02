@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hansel Davis - Resume. Automation Specialist seeking full-time opportunities. Workflow automation, CRM administration, data management, and process improvement.">
+  <title>Hansel Davis · Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" type="image/png" href="https://emojicdn.elk.sh/📄?style=twemoji">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f3f4f6;
+      color: #111827;
+      line-height: 1.5;
+      padding: 2rem;
+    }
+
+    /* Navigation Bar */
+    .nav-bar {
+      max-width: 1000px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: white;
+      border-radius: 60px;
+      border: 1px solid #eef2f6;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      background: linear-gradient(135deg, #1f2937, #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4b5563;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links a:hover {
+      color: #3b82f6;
+    }
+
+    .resume-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* Header Section */
+    .resume-header {
+      background: #1f2937;
+      color: white;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .resume-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .resume-header .title {
+      font-size: 1.1rem;
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+
+    .contact-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .contact-bar a, .contact-bar span {
+      color: #d1d5db;
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .contact-bar a:hover {
+      color: white;
+    }
+
+    /* Main Content */
+    .resume-body {
+      padding: 2rem;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #3b82f6;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Experience Items */
+    .experience-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 0.25rem;
+    }
+
+    .experience-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .experience-company {
+      color: #3b82f6;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .experience-date {
+      color: #6b7280;
+      font-size: 0.85rem;
+    }
+
+    .experience-location {
+      color: #6b7280;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-item ul {
+      margin-left: 1.2rem;
+      color: #4b5563;
+    }
+
+    .experience-item li {
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-category h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
+    }
+
+    .skill-category p {
+      font-size: 0.85rem;
+      color: #4b5563;
+      line-height: 1.4;
+    }
+
+    /* Two-column layout */
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    /* Project items */
+    .project-item {
+      margin-bottom: 1rem;
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-item ul {
+      margin-left: 1.2rem;
+      color: #4b5563;
+    }
+
+    .project-item li {
+      font-size: 0.85rem;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .btn-primary {
+      background: #1f2937;
+      color: white;
+      border: 1px solid #1f2937;
+    }
+
+    .btn-primary:hover {
+      background: #374151;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #1f2937;
+      border: 1px solid #1f2937;
+    }
+
+    .btn-outline:hover {
+      background: #1f2937;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+      .nav-bar {
+        display: none;
+      }
+      .action-buttons {
+        display: none;
+      }
+      .resume-container {
+        box-shadow: none;
+        border-radius: 0;
+        max-width: 100%;
+      }
+      .resume-header {
+        background: #1f2937;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .contact-bar a {
+        color: #d1d5db;
+        text-decoration: none;
+      }
+      .section-title {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      .two-column {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .contact-bar {
+        gap: 0.75rem;
+      }
+      .resume-header {
+        padding: 1.5rem;
+      }
+      .resume-header h1 {
+        font-size: 1.8rem;
+      }
+      .resume-body {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="nav-bar">
+  <a href="index.html" class="nav-logo">Hansel.automation</a>
+  <div class="nav-links">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="index.html#experience"><i class="fas fa-briefcase"></i> Experience</a>
+    <a href="index.html#skills"><i class="fas fa-code"></i> Skills</a>
+    <a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a>
+  </div>
+</div>
+
+<div class="resume-container">
+  <!-- Header -->
+  <div class="resume-header">
+    <h1>Hansel Davis</h1>
+    <div class="title">Automation Specialist & Systems Problem-Solver</div>
+    <div class="contact-bar">
+      <span><i class="fas fa-map-marker-alt"></i> Remote / Global</span>
+      <a href="mailto:hansel@yourdomain.com"><i class="fas fa-envelope"></i> hansel@yourdomain.com</a>
+      <a href="#"><i class="fab fa-linkedin"></i> linkedin.com/in/hanseldavis</a>
+      <a href="#"><i class="fab fa-github"></i> github.com/hanseldavis</a>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="resume-body">
+
+    <!-- Professional Summary -->
+    <div class="section">
+      <div class="section-title">Professional Summary</div>
+      <p style="font-size: 0.95rem; line-height: 1.6;">Workflow automation specialist with hands-on experience designing systems that eliminate manual busywork. Skilled in CRM administration, data management, process analysis, and integration between disconnected platforms. Self-taught, systems-oriented thinker who takes ownership and delivers measurable efficiency improvements. Seeking a full-time role where I can help a team work smarter, not harder.</p>
+    </div>
+
+    <!-- Two Column Layout for Skills + Core Competencies -->
+    <div class="two-column">
+      <!-- Left Column -->
+      <div>
+        <!-- Technical Skills -->
+        <div class="section">
+          <div class="section-title">Technical Skills</div>
+          <div class="skills-grid" style="grid-template-columns: 1fr;">
+            <div class="skill-category">
+              <h3>⚡ Automation & Integration</h3>
+              <p>Zapier · Make (Integromat) · API concepts · Webhooks · Workflow design · AI-assisted automation</p>
+            </div>
+            <div class="skill-category">
+              <h3>📊 Data Management</h3>
+              <p>CSV processing · Data cleanup & migration · Deduplication · Google Sheets/Excel · QA testing</p>
+            </div>
+            <div class="skill-category">
+              <h3>📁 CRM & Operations</h3>
+              <p>HubSpot · Pipedrive · Follow Up Boss · Lead management · Process documentation · Troubleshooting</p>
+            </div>
+            <div class="skill-category">
+              <h3>💻 Development (in progress)</h3>
+              <p>HTML/CSS/JavaScript · Python basics · Git · Web fundamentals · Front-end basics</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div>
+        <!-- Core Competencies -->
+        <div class="section">
+          <div class="section-title">Core Competencies</div>
+          <ul style="margin-left: 1.2rem; color: #4b5563; font-size: 0.9rem;">
+            <li>Workflow Automation & Optimization</li>
+            <li>CRM Administration & Integration</li>
+            <li>Data Migration & Quality Assurance</li>
+            <li>Process Analysis & Documentation</li>
+            <li>Technical Troubleshooting</li>
+            <li>Cross-functional Collaboration</li>
+            <li>Project Ownership & Delivery</li>
+            <li>AI-Assisted Process Design</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work Experience -->
+    <div class="section">
+      <div class="section-title">Work Experience</div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <span class="experience-title">Automation Specialist</span>
+          <span class="experience-date">2024 · Contract</span>
+        </div>
+        <div class="experience-company">Freelance / Independent</div>
+        <div class="experience-location">Remote</div>
+        <ul>
+          <li>Built CRM synchronization between 3 disconnected platforms — eliminated 15+ hours of manual data entry weekly</li>
+          <li>Designed automated data import workflows that reduced administrative workload by 80%</li>
+          <li>Created comprehensive process documentation enabling team members to maintain systems independently</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <span class="experience-title">Systems Coordinator</span>
+          <span class="experience-date">2024 · Contract</span>
+        </div>
+        <div class="experience-company">Freelance / Independent</div>
+        <div class="experience-location">Remote</div>
+        <ul>
+          <li>Developed automated lead routing system that reduced response time from 5 hours to 90 seconds</li>
+          <li>Implemented follow-up sequences increasing lead contact rate from 20% to 85%</li>
+          <li>Standardized and deduplicated 50k+ contact records for successful CRM migration</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <span class="experience-title">Automation Developer (Self-directed)</span>
+          <span class="experience-date">2023–2024</span>
+        </div>
+        <div class="experience-company">Independent Projects</div>
+        <div class="experience-location">Remote</div>
+        <ul>
+          <li>Designed and deployed workflow automations connecting forms, CRMs, and communication platforms</li>
+          <li>Built AI-interactive web projects and browser-based games as part of full-stack development training</li>
+          <li>Created structured automation systems for marketing and operational workflows</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Key Projects -->
+    <div class="section">
+      <div class="section-title">Key Projects</div>
+
+      <div class="project-item">
+        <div class="project-title">Conditional Lead Router</div>
+        <ul>
+          <li>Built automated system that reads form submissions and routes to appropriate team members based on location/priority</li>
+          <li>Integrated Google Forms, Zapier, and Slack — reduced manual triage time to near-zero</li>
+        </ul>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title">CSV Cleanup Pipeline</div>
+        <ul>
+          <li>Designed data processing workflow that transforms messy exports into clean, import-ready files</li>
+          <li>Implemented AI-assisted deduplication and standardization — reduced 2-week migration to 2 days</li>
+        </ul>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title">Multi-Platform Data Sync</div>
+        <ul>
+          <li>Created synchronization between CRM and transaction management system using API + low-code triggers</li>
+          <li>Ensured real-time data consistency across previously disconnected platforms</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Education & Certifications -->
+    <div class="section">
+      <div class="section-title">Education & Certifications</div>
+      <ul style="margin-left: 1.2rem; color: #4b5563; font-size: 0.9rem;">
+        <li><strong>Full-Stack Development Training</strong> — In progress, project-based learning</li>
+        <li><strong>Zapier Expert Certification</strong> — In progress</li>
+        <li><strong>HubSpot CRM Certification</strong> — In progress</li>
+        <li><strong>Self-taught</strong> — Automation, data management, web fundamentals</li>
+      </ul>
+    </div>
+
+    <!-- Availability -->
+    <div class="section">
+      <div class="section-title">Availability</div>
+      <p style="font-size: 0.95rem;">📍 Remote · Open to relocation · Full-time · Contract-to-hire · Flexible with global timezones</p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button onclick="window.print()" class="btn btn-primary"><i class="fas fa-print"></i> Print / Save as PDF</button>
+      <a href="index.html#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Smooth scroll for any anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  console.log('Resume page loaded — ready for printing');
+</script>
+
+</body>
+</html>
