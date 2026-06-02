@@ -3,11 +3,442 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hansel Davis - Workflow Automation & Systems Problem-Solver. I turn repetitive work into automated systems. Any tool. Any process.">
-  <title>Hansel Davis · Automation & Workflow Specialist</title>
+  <meta name="description" content="Hansel Davis - Automation Specialist seeking full-time opportunities. Workflow automation, CRM administration, data management, and process improvement.">
+  <meta name="keywords" content="automation specialist, crm administrator, workflow automation, process improvement, operations analyst, systems administrator">
+  <meta name="author" content="Hansel Davis">
+  <meta property="og:title" content="Hansel Davis · Automation Specialist">
+  <meta property="og:description" content="I build systems that eliminate busywork. Seeking full-time opportunities in automation, CRM, and operations.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Hansel Davis · Automation Specialist</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="https://emojicdn.elk.sh/⚡?style=twemoji">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Utility Classes */
+    .text-center {
+      text-align: center;
+    }
+
+    .mt-1 {
+      margin-top: 0.5rem;
+    }
+    .mt-2 {
+      margin-top: 1rem;
+    }
+    .mt-3 {
+      margin-top: 1.5rem;
+    }
+    .mb-1 {
+      margin-bottom: 0.5rem;
+    }
+    .mb-2 {
+      margin-bottom: 1rem;
+    }
+    .mb-3 {
+      margin-bottom: 1.5rem;
+    }
+    .mb-4 {
+      margin-bottom: 2rem;
+    }
+    .py-1 {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .py-2 {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .py-3 {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+    .py-4 {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background-color: #1f2937;
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid #1f2937;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #1f2937;
+      border: 1px solid #1f2937;
+    }
+
+    .btn-outline:hover {
+      background: #1f2937;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn:hover {
+      background: #374151;
+      transform: translateY(-2px);
+    }
+
+    /* Header & Navigation */
+    header {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(4px);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1f2937, #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1f2937;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #3b82f6;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4rem 0 3rem 0;
+    }
+
+    .hero-badge {
+      background: #e0e7ff;
+      color: #1e3a8a;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #d9f0ff 0%, #b9e0ff 80%);
+      padding: 0 0.2rem;
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      color: #4b5563;
+      max-width: 720px;
+      margin-bottom: 2rem;
+    }
+
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.8rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+      border: 1px solid #eef2f6;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+      border-color: #cbd5e1;
+    }
+
+    .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #3b82f6;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .pill {
+      background: #f3f4f6;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+
+    /* Process Steps */
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 180px;
+      background: white;
+      border-radius: 32px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid #eef2f6;
+      transition: transform 0.2s;
+    }
+
+    .step:hover {
+      transform: translateY(-4px);
+    }
+
+    .step-number {
+      background: #1f2937;
+      color: white;
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 60px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .step h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    /* Tech Strip */
+    .tech-strip {
+      background: white;
+      border-radius: 60px;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.8rem;
+      font-weight: 500;
+      color: #2c3e66;
+      border: 1px solid #eef2f6;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #e5e7eb;
+      background: white;
+      margin-top: 2rem;
+    }
+
+    /* Skills grid lists */
+    .skills-grid ul {
+      margin-top: 1rem;
+      margin-left: 1.2rem;
+      color: #4b5563;
+    }
+
+    .skills-grid li {
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-list ul {
+      margin-left: 1.5rem;
+      color: #4b5563;
+    }
+
+    .experience-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      .nav-flex {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+      }
+
+      .hero {
+        padding: 2.5rem 0 2rem;
+      }
+
+      .hero-sub {
+        font-size: 1rem;
+      }
+
+      .steps {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .step {
+        min-width: auto;
+      }
+
+      .tech-strip {
+        gap: 1rem;
+        padding: 0.8rem 1.2rem;
+        font-size: 0.8rem;
+      }
+
+      .grid-2,
+      .grid-3 {
+        gap: 1rem;
+      }
+
+      .card {
+        padding: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .logo {
+        font-size: 1.3rem;
+      }
+
+      .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+      }
+
+      .card h3 {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card,
+    .step {
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
 </head>
 <body>
 
@@ -16,101 +447,196 @@
     <div class="nav-flex">
       <div class="logo">Hansel<span style="color:#3b82f6;">.automation</span></div>
       <div class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#approach">Approach</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#contact" class="btn-outline btn" style="padding:0.5rem 1.2rem;">Book audit →</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#roles">Roles</a>
+        <a href="#contact" class="btn-outline btn" style="padding:0.5rem 1.2rem;">Contact →</a>
       </div>
     </div>
   </div>
 </header>
 
 <main>
-  <!-- Hero Section -->
+  <!-- Hero Section - Employee Version -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge">⚡ systems thinker · automation generalist</div>
-      <h1>I turn repetitive work into <span class="highlight">automated systems</span>.<br>Any tool. Any process.</h1>
-      <p class="hero-sub">No code required. No vendor lock-in. You describe the manual grind — I design the workflow. Small businesses, agencies, operators: reclaim 5–15 hours/week.</p>
+      <div class="hero-badge">⚡ automation specialist · seeking full-time opportunities</div>
+      <h1>I build systems that eliminate busywork.<br>Let me do it for <span class="highlight">your team</span>.</h1>
+      <p class="hero-sub">Workflow automation · CRM administration · Data management · Process improvement</p>
       <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="#contact" class="btn">🎯 Free workflow audit →</a>
-        <a href="#approach" class="btn-outline btn">📄 See how I think</a>
+        <a href="#contact" class="btn">📄 Contact me about opportunities →</a>
+        <a href="#experience" class="btn-outline btn">👔 View my experience</a>
       </div>
     </div>
   </section>
 
-  <!-- Capabilities Section -->
-  <section class="py-3" id="capabilities">
+  <!-- About Me / Professional Summary -->
+  <section class="py-4" style="background: #f3f6fc;">
     <div class="container">
-      <div style="max-width: 800px; margin-bottom: 2rem;">
-        <span class="pill">🔁 patterns, not platforms</span>
-        <h2 style="font-size: 2rem; font-weight: 700; margin-top: 0.5rem;">What I actually solve</h2>
-        <p style="color: #4b5563;">Every business has hidden inefficiencies. I've built a repeatable system to find and eliminate them — across CRMs, spreadsheets, forms, AI, and APIs.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card"><div class="card-icon"><i class="fas fa-sync-alt"></i></div><h3>Data sync between disconnected tools</h3><p>Moving info from forms → spreadsheets → CRMs → Slack/email without copy-paste. Real-time, reliable, auditable.</p><div class="result-stat">⏱️ typical saving: 6-12 hrs/week</div></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-broom"></i></div><h3>Messy data & CSV cleanup</h3><p>Standardizing, deduping, formatting — turning chaotic exports into clean imports. AI-assisted or rule‑based.</p><div class="result-stat">📊 90% less manual spreadsheet hell</div></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-clock"></i></div><h3>Conditional routing & follow-up</h3><p>If this happens → then that happens. Escalate leads, alert teams, send sequences. No dropped balls.</p><div class="result-stat">✅ 100% follow-up consistency</div></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-robot"></i></div><h3>AI-enhanced workflows</h3><p>Summarize, categorize, or extract insights from text. From support tickets to lead scoring — human in the loop.</p><div class="result-stat">⚡ 80% faster triage</div></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-puzzle-piece"></i></div><h3>Integration without headaches</h3><p>Zapier, Make, native APIs, webhooks — I speak the glue layer. Connect anything that has a trigger.</p><div class="result-stat">🔌 50+ tools supported</div></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-file-alt"></i></div><h3>Process documentation & handoff</h3><p>You're never locked in. Every automation comes with clear diagrams, logic maps, and training notes.</p><div class="result-stat">📘 built for real humans</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case Studies Section -->
-  <section class="py-4" id="work" style="background: #f3f6fc;">
-    <div class="container">
-      <div class="text-center mb-3">
-        <span class="pill">📌 real outcomes · no industry lock</span>
-        <h2 style="font-size: 2rem; font-weight: 700;">Three ways I've eliminated busywork</h2>
-        <p style="color: #4b5563;">Each case uses a different stack — but the method stays the same.</p>
-      </div>
       <div class="grid-2">
-        <div class="card">
-          <span class="pill">📤 data logistics</span>
-          <h3>Multi‑platform sync nightmare → silent automation</h3>
-          <p><strong>Problem:</strong> Admin had to re-enter data from 3 different SaaS tools daily, causing delays and errors.</p>
-          <p><strong>Solution:</strong> Built connector flows using API + low-code triggers; data unified into a master sheet and each tool updated automatically on change.</p>
-          <div class="result-stat">✔️ 9 hours/week recovered · zero manual data entry</div>
+        <div>
+          <span class="pill">👋 about me</span>
+          <h2 style="font-size: 2rem; margin-top: 0.5rem;">I'm Hansel — an automation specialist looking for the right team.</h2>
+          <p style="margin: 1rem 0; line-height: 1.6;">I help companies stop wasting time on repetitive tasks. Whether it's connecting CRMs, cleaning up messy data, or building automated workflows — I make systems work better so people don't have to.</p>
+          <p style="margin: 1rem 0; line-height: 1.6;">I'm self-taught, deeply curious, and I take ownership of everything I build. I don't wait for instructions — I find problems and solve them.</p>
+          <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+            <span style="background: white; padding: 0.25rem 1rem; border-radius: 20px;">📍 Open to remote</span>
+            <span style="background: white; padding: 0.25rem 1rem; border-radius: 20px;">🕒 Full-time · Contract-to-hire</span>
+            <span style="background: white; padding: 0.25rem 1rem; border-radius: 20px;">🌎 Global timezones welcome</span>
+          </div>
         </div>
-        <div class="card">
-          <span class="pill">🧹 data cleanup</span>
-          <h3>50k row migration disaster → import-ready in 48h</h3>
-          <p><strong>Problem:</strong> Client's CSV had inconsistent formats, duplicate contacts, missing fields — new CRM rejected everything.</p>
-          <p><strong>Solution:</strong> Designed smart cleanup pipeline (AI fuzzy matching + rules) that normalized names, phones, and deduped records.</p>
-          <div class="result-stat">✔️ migration went from 2 weeks → 2 days</div>
-        </div>
-        <div class="card">
-          <span class="pill">⏱️ conditional routing</span>
-          <h3>Lead response from 5 hours → 90 seconds</h3>
-          <p><strong>Problem:</strong> Incoming form entries sat in email until someone manually triaged and assigned.</p>
-          <p><strong>Solution:</strong> Built a rules‑based router: location/priority fields → instantly notify correct person via Slack/SMS with lead context.</p>
-          <div class="result-stat">✔️ 15 min saved daily per agent · 0 leads missed</div>
-        </div>
-        <div class="card">
-          <span class="pill">🤖 AI + automation</span>
-          <h3>Support ticket categorization on autopilot</h3>
-          <p><strong>Problem:</strong> Support team spent 10+ hours/week manually tagging and routing customer emails.</p>
-          <p><strong>Solution:</strong> AI classifier + automation pipeline: email → category + priority → create task in project tool → send auto-reply if low-priority.</p>
-          <div class="result-stat">✔️ 12 hours/week back to strategic work</div>
+        <div style="background: white; border-radius: 24px; padding: 1.5rem; border: 1px solid #eef2f6;">
+          <h3>📌 Quick facts</h3>
+          <ul style="margin-top: 1rem; list-style: none;">
+            <li style="margin-bottom: 0.75rem;">✅ <strong>3+ years</strong> building automation systems</li>
+            <li style="margin-bottom: 0.75rem;">✅ <strong>10+ workflows</strong> designed and deployed</li>
+            <li style="margin-bottom: 0.75rem;">✅ <strong>5+ CRMs</strong> administered (HubSpot, Pipedrive, Follow Up Boss, etc.)</li>
+            <li style="margin-bottom: 0.75rem;">✅ <strong>50k+ records</strong> cleaned and migrated</li>
+            <li style="margin-bottom: 0.75rem;">✅ <strong>Self-taught</strong> · Full-stack development in progress</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Process Section -->
-  <section class="py-4" id="approach">
+  <!-- Professional Experience -->
+  <section class="py-4" id="experience">
     <div class="container">
       <div class="text-center mb-3">
-        <span class="pill">⚙️ how we work together</span>
-        <h2 style="font-size: 2rem;">A process built for <span class="highlight">generalists who deliver</span></h2>
+        <span class="pill">💼 professional experience</span>
+        <h2 style="font-size: 2rem;">What I've built and delivered</h2>
+        <p style="color: #4b5563;">Projects and systems I've designed — independently and with teams.</p>
       </div>
-      <div class="steps">
-        <div class="step"><div class="step-number">1</div><h3>🧠 Describe the grind</h3><p>15-min call where you share any repetitive task — I ask about triggers, actions, and friction points.</p></div>
-        <div class="step"><div class="step-number">2</div><h3>🗺️ Map & design</h3><p>I return a visual workflow + tool recommendations (no commitment). We align on the ideal outcome.</p></div>
-        <div class="step"><div class="step-number">3</div><h3>⚙️ Build & test</h3><p>I build the automation, test edge cases, and provide a walkthrough video. You only pay when it works.</p></div>
-        <div class="step"><div class="step-number">4</div><h3>📎 Handoff & evolve</h3><p>Full documentation, editable logic, and 30 days of tweaks included. You own the system completely.</p></div>
+      
+      <div class="experience-list" style="max-width: 800px; margin: 0 auto;">
+        
+        <!-- Experience Item 1 -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.5rem;">
+            <h3 style="margin: 0;">CRM Integration & Data Sync</h3>
+            <span style="color: #6b7280; font-size: 0.85rem;">Freelance / Contract · 2024</span>
+          </div>
+          <p style="color: #3b82f6; margin-bottom: 0.75rem;">Automation Specialist</p>
+          <ul>
+            <li>Built synchronization between CRM and transaction management platforms — eliminated duplicate data entry across 3 systems</li>
+            <li>Designed data import workflows that reduced manual admin work by 15+ hours per week</li>
+            <li>Documented all processes so team members could maintain systems independently</li>
+          </ul>
+        </div>
+        
+        <!-- Experience Item 2 -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.5rem;">
+            <h3 style="margin: 0;">Lead Management Automation</h3>
+            <span style="color: #6b7280; font-size: 0.85rem;">Freelance / Contract · 2024</span>
+          </div>
+          <p style="color: #3b82f6; margin-bottom: 0.75rem;">Systems Coordinator</p>
+          <ul>
+            <li>Created automated lead routing system that reduced response time from 5 hours to 90 seconds</li>
+            <li>Implemented follow-up sequences that increased lead contact rate from 20% to 85%</li>
+            <li>Managed and standardized large contact databases (50k+ records) for CRM migration</li>
+          </ul>
+        </div>
+        
+        <!-- Experience Item 3 -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.5rem;">
+            <h3 style="margin: 0;">AI-Assisted Process Design</h3>
+            <span style="color: #6b7280; font-size: 0.85rem;">Independent Projects · 2023-2024</span>
+          </div>
+          <p style="color: #3b82f6; margin-bottom: 0.75rem;">Automation Developer (Self-directed)</p>
+          <ul>
+            <li>Built workflow automation connecting multiple business platforms using Zapier and AI tools</li>
+            <li>Developed website-based AI interaction projects and web-based games as part of full-stack training</li>
+            <li>Created structured automation systems for marketing and operational workflows</li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section - ATS Friendly -->
+  <section class="py-4" id="skills" style="background: #f9fafb;">
+    <div class="container">
+      <div class="text-center mb-3">
+        <span class="pill">🧠 technical skills</span>
+        <h2 style="font-size: 2rem;">What I bring to your team</h2>
+      </div>
+      
+      <div class="skills-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        
+        <div class="card">
+          <h3><i class="fas fa-robot"></i> Automation & Integration</h3>
+          <ul>
+            <li>Zapier / Make (formerly Integromat)</li>
+            <li>API integration concepts</li>
+            <li>Webhooks & data synchronization</li>
+            <li>Workflow design & documentation</li>
+            <li>AI-assisted process automation</li>
+          </ul>
+        </div>
+        
+        <div class="card">
+          <h3><i class="fas fa-database"></i> Data Management</h3>
+          <ul>
+            <li>CSV processing & cleanup</li>
+            <li>Data migration & deduplication</li>
+            <li>Google Sheets / Excel automation</li>
+            <li>Quality assurance & testing</li>
+            <li>Database fundamentals</li>
+          </ul>
+        </div>
+        
+        <div class="card">
+          <h3><i class="fas fa-tachometer-alt"></i> CRM & Operations</h3>
+          <ul>
+            <li>HubSpot, Pipedrive, Follow Up Boss</li>
+            <li>Lead management systems</li>
+            <li>Process analysis & improvement</li>
+            <li>Technical troubleshooting</li>
+            <li>Operations documentation</li>
+          </ul>
+        </div>
+        
+        <div class="card">
+          <h3><i class="fas fa-code"></i> Development (in progress)</h3>
+          <ul>
+            <li>HTML / CSS / JavaScript fundamentals</li>
+            <li>Web application fundamentals</li>
+            <li>Python basics</li>
+            <li>Version control (Git)</li>
+            <li>Front-end development basics</li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideal Role Section -->
+  <section class="py-4" id="roles">
+    <div class="container text-center">
+      <span class="pill">🎯 ideal role</span>
+      <h2 style="font-size: 2rem; margin-top: 0.5rem;">I'm looking for a team that values</h2>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem;">
+        <span style="background: #e0e7ff; padding: 0.5rem 1.2rem; border-radius: 40px;">🔧 Process improvement</span>
+        <span style="background: #e0e7ff; padding: 0.5rem 1.2rem; border-radius: 40px;">🤖 Automation-first culture</span>
+        <span style="background: #e0e7ff; padding: 0.5rem 1.2rem; border-radius: 40px;">📈 Growth & learning</span>
+        <span style="background: #e0e7ff; padding: 0.5rem 1.2rem; border-radius: 40px;">👥 Collaborative environment</span>
+        <span style="background: #e0e7ff; padding: 0.5rem 1.2rem; border-radius: 40px;">🌍 Remote or hybrid</span>
+      </div>
+      
+      <div style="max-width: 700px; margin: 2rem auto; background: #f3f6fc; border-radius: 24px; padding: 1.5rem;">
+        <h3>📋 Roles I'm targeting</h3>
+        <ul style="list-style: none; margin-top: 1rem;">
+          <li style="margin-bottom: 0.5rem;">✓ Automation Specialist</li>
+          <li style="margin-bottom: 0.5rem;">✓ CRM Administrator</li>
+          <li style="margin-bottom: 0.5rem;">✓ Operations Coordinator / Analyst</li>
+          <li style="margin-bottom: 0.5rem;">✓ Systems Administrator</li>
+          <li style="margin-bottom: 0.5rem;">✓ Junior Full-Stack Developer</li>
+          <li style="margin-bottom: 0.5rem;">✓ Technical Support Specialist</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -120,9 +646,9 @@
     <div class="container">
       <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center;">
         <div style="flex: 2; min-width: 220px;">
-          <span class="pill">🧰 no rigid stack · always learning</span>
-          <h2 style="font-size: 1.8rem; margin-top: 0.5rem;">Tools change.<br> Problem‑solving doesn't.</h2>
-          <p style="color: #2c3e66;">Zapier, Make, n8n, Google Apps Script, Python (basic glue), Airtable, HubSpot, Pipedrive, Follow Up Boss, ChatGPT/Claude APIs, Twilio, Slack, webhooks — I adapt to your ecosystem, not the other way around.</p>
+          <span class="pill">🧰 tools I work with</span>
+          <h2 style="font-size: 1.8rem; margin-top: 0.5rem;">Tech stack & platforms</h2>
+          <p style="color: #2c3e66;">Zapier, Make, n8n, Google Apps Script, Python (basic), Airtable, HubSpot, Pipedrive, Follow Up Boss, ChatGPT/Claude APIs, Twilio, Slack, webhooks — I adapt to your ecosystem, not the other way around.</p>
         </div>
         <div style="flex: 1.5;">
           <div class="tech-strip">
@@ -134,41 +660,40 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact Section - Employee Version (Job Opportunities) -->
   <section class="py-4" id="contact" style="background: #f9fafb;">
     <div class="container">
       <div class="text-center mb-3">
-        <span class="pill">📬 send a message</span>
-        <h2 style="font-size: 2rem; font-weight: 700;">Let's automate your biggest time-drain</h2>
-        <p style="color: #4b5563; max-width: 600px; margin: 0 auto;">Tell me about a repetitive task you hate. I'll reply within 24h with a workflow map — no obligation.</p>
+        <span class="pill">📬 let's talk</span>
+        <h2 style="font-size: 2rem; font-weight: 700;">Interested in adding me to your team?</h2>
+        <p style="color: #4b5563; max-width: 600px; margin: 0 auto;">Send me a note about your open role or company — I'll reply within 24 hours.</p>
       </div>
-      <div style="max-width: 700px; margin: 2rem auto;">
-        <!-- IMPORTANT: Replace with your actual Formspree endpoint -->
-        <form id="contact-form" action="https://formspree.io/f/xqejrgaz" method="POST" class="contact-form">
-          <input type="hidden" name="_subject" value="New message from HanselDavis.com">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-            <input type="text" name="name" placeholder="Your name" required style="padding: 0.9rem; border-radius: 16px; border: 1px solid #e2e8f0; font-family: inherit;">
-            <input type="email" name="email" placeholder="Email address" required style="padding: 0.9rem; border-radius: 16px; border: 1px solid #e2e8f0; font-family: inherit;">
+      <div style="max-width: 600px; margin: 2rem auto; text-align: center;">
+        <div style="background: white; padding: 2rem; border-radius: 32px; border: 1px solid #eef2f6;">
+          <i class="fas fa-paper-plane" style="font-size: 40px; color: #3b82f6; margin-bottom: 1rem;"></i>
+          <p><strong>Email me directly:</strong></p>
+          <a href="mailto:hansel@yourdomain.com" style="font-size: 1.2rem; color: #3b82f6; text-decoration: none;">hansel@yourdomain.com</a>
+          <div style="margin: 1.5rem 0;">
+            <p>or</p>
+            <a href="#" target="_blank" class="btn" style="background: #0077b5; border-color: #0077b5; display: inline-flex; align-items: center; gap: 0.5rem;">
+              <i class="fab fa-linkedin"></i> Connect on LinkedIn →
+            </a>
           </div>
-          <input type="text" name="company" placeholder="Company / Business (optional)" style="margin-top: 1rem; padding: 0.9rem; border-radius: 16px; border: 1px solid #e2e8f0; width: 100%; font-family: inherit;">
-          <textarea name="message" placeholder="Describe the repetitive task you'd like to automate..." rows="5" required style="margin-top: 1rem; padding: 0.9rem; border-radius: 16px; border: 1px solid #e2e8f0; width: 100%; font-family: inherit;"></textarea>
-          <button type="submit" class="btn" style="margin-top: 1.5rem; width: 100%; cursor: pointer;">📨 Send workflow request →</button>
-          <p class="mt-2" style="font-size: 0.75rem; text-align: center; color: #6b7280;">Messages sent securely. I reply within 24 hours.</p>
-        </form>
-        <div id="form-status" style="margin-top: 1rem; text-align: center; font-weight: 500;"></div>
+          <p style="font-size: 0.8rem; color: #6b7280;">I'm actively looking for full-time or contract-to-hire opportunities.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Banner -->
+  <!-- Simple CTA -->
   <section style="background: #1f2937; color: white; border-radius: 48px; margin: 2rem auto 2rem; max-width: 1000px; padding: 2.5rem 2rem; text-align: center;">
     <div class="container" style="max-width: 800px;">
-      <span style="background: #3b82f6; padding: 0.2rem 1rem; border-radius: 60px; font-size: 0.8rem; font-weight: 600;">⬇️ zero pressure, high signal</span>
-      <h2 style="font-size: 2.2rem; margin: 1rem 0; font-weight: 700;">“I can do anything” — prove it with a 20‑min audit</h2>
-      <p style="margin-bottom: 2rem; opacity: 0.85;">No project too messy. No process too niche. Describe your current repetitive task, and I'll return a map + estimate within 48h. Free.</p>
+      <span style="background: #3b82f6; padding: 0.2rem 1rem; border-radius: 60px; font-size: 0.8rem; font-weight: 600;">⬇️ open to work</span>
+      <h2 style="font-size: 2.2rem; margin: 1rem 0; font-weight: 700;">Let's talk about how I can help your team</h2>
+      <p style="margin-bottom: 2rem; opacity: 0.85;">Automation specialist · Remote or hybrid · Full-time or contract-to-hire</p>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="#contact" style="background: white; color: #1f2937; padding: 0.7rem 1.8rem; border-radius: 40px; font-weight: 700; text-decoration: none;">📅 Book free audit call →</a>
-        <a href="#contact" style="background: transparent; border: 1px solid white; padding: 0.7rem 1.8rem; border-radius: 40px; text-decoration: none; color: white;">📧 Send your worst workflow example</a>
+        <a href="#contact" style="background: white; color: #1f2937; padding: 0.7rem 1.8rem; border-radius: 40px; font-weight: 700; text-decoration: none;">📅 Contact me →</a>
+        <a href="#" style="background: transparent; border: 1px solid white; padding: 0.7rem 1.8rem; border-radius: 40px; text-decoration: none; color: white;"><i class="fab fa-linkedin"></i> View LinkedIn</a>
       </div>
     </div>
   </section>
@@ -178,33 +703,35 @@
   <div class="container">
     <div class="py-3" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
       <div>
-        <span class="logo" style="font-size: 1.2rem;">Hansel Davis · Automation Generalist</span>
-        <p style="font-size: 0.8rem; color: #6b7280; margin-top: 0.5rem;">© 2025 — built for practical results, not buzzwords.</p>
+        <span class="logo" style="font-size: 1.2rem;">Hansel Davis · Automation Specialist</span>
+        <p style="font-size: 0.8rem; color: #6b7280; margin-top: 0.5rem;">© 2025 — Open to work · Full-time · Remote</p>
       </div>
       <div style="display: flex; gap: 2rem;">
         <a href="#" style="text-decoration: none; color: #4b5563;"><i class="fab fa-linkedin"></i> LinkedIn</a>
         <a href="#" style="text-decoration: none; color: #4b5563;"><i class="fab fa-github"></i> GitHub</a>
-        <a href="#work" style="text-decoration: none; color: #4b5563;">Process showcase</a>
+        <a href="#" style="text-decoration: none; color: #4b5563;"><i class="fas fa-file-alt"></i> Resume</a>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6a1eb5589a52f51c317617c9/1jq3v8p3j';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
+  console.log('Portfolio site loaded — open to full-time opportunities');
 </script>
-<!--End of Tawk.to Script-->
-  
+
 </body>
 </html>
