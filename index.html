@@ -566,30 +566,64 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="py-4" id="contact" style="background: #f9fafb;">
-    <div class="container">
-      <div class="text-center mb-3">
-        <span class="pill">📬 let's talk</span>
-        <h2 style="font-size: 2rem; font-weight: 700;">Ready to add a developer & automator to your team?</h2>
-        <p style="color: #4b5563; max-width: 600px; margin: 0 auto;">Send me a note about your open role — I'll reply within 24 hours.</p>
-      </div>
-      <div style="max-width: 600px; margin: 2rem auto;">
-        <div class="contact-form">
-          <form id="contactForm">
-            <div style="margin-bottom: 1rem;"><label style="font-weight: 500;">Name *</label><input type="text" id="name" required></div>
-            <div style="margin-bottom: 1rem;"><label style="font-weight: 500;">Email *</label><input type="email" id="email" required></div>
-            <div style="margin-bottom: 1rem;"><label style="font-weight: 500;">Message / Role *</label><textarea id="message" rows="4" required></textarea></div>
-            <button type="submit" class="btn" style="width:100%;">Send inquiry →</button>
-            <div id="formStatus" style="margin-top: 1rem;"></div>
-          </form>
-          <div style="margin-top: 1.5rem; text-align: center; border-top: 1px solid #eef2f6; padding-top: 1rem;">
-            <p><strong>Or email me directly:</strong></p>
-            <a href="mailto:hansel.davis62@gmail.com" style="font-size: 1rem; color: #3b82f6;">hansel.davis62@gmail.com</a>
-          </div>
-        </div>
-      </div>
+  <!-- n8n Form Trigger Embed -->
+<section id="n8n-form-embed" style="
+    background: #f8fafc;
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem;
+    margin: 4rem auto;
+    max-width: 900px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+">
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        ">
+            📬 Send a Direct Message
+        </h2>
+        <p style="
+            color: #475569;
+            font-size: 1.05rem;
+            max-width: 500px;
+            margin: 0 auto;
+        ">
+            Use this form to reach me instantly — I respond within 24 hours.
+        </p>
     </div>
-  </section>
+
+    <div style="
+        background: white;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        border: 1px solid #eef2f6;
+    ">
+        <iframe
+            src="http://localhost:5678/form/388b3a9d-fad7-455b-90b5-fdd38cc3d546"
+            width="100%"
+            height="600"
+            frameborder="0"
+            style="border-radius: 0.75rem; background: transparent;"
+            allow="geolocation; microphone; camera"
+            loading="lazy"
+            title="Contact Hansel via n8n Form"
+        ></iframe>
+    </div>
+
+    <p style="
+        text-align: center;
+        font-size: 0.85rem;
+        color: #94a3b8;
+        margin-top: 1.5rem;
+    ">
+        🔒 Your message is secure and sent directly to my workflow system.
+    </p>
+</section>
 
   <!-- CTA Banner -->
   <section style="background: #1f2937; color: white; border-radius: 48px; margin: 2rem auto 2rem; max-width: 1000px; padding: 2.5rem 2rem; text-align: center;">
@@ -614,7 +648,51 @@
   </div>
 </footer>
 
+<!-- Contact Section with n8n Form -->
+<section class="py-4" id="contact" style="background: #f9fafb;">
+  <div class="container">
+    <div class="text-center mb-3">
+      <span class="pill">📬 let's talk</span>
+      <h2 style="font-size: 2rem; font-weight: 700;">Ready to add a developer & automator to your team?</h2>
+      <p style="color: #4b5563; max-width: 600px; margin: 0 auto;">Send me a note about your open role — I'll reply within 24 hours.</p>
+    </div>
+    
+    <!-- n8n Form Embed -->
+    <div style="max-width: 700px; margin: 2rem auto;">
+      <div style="
+        background: white;
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+        border: 1px solid #eef2f6;
+      ">
+        <iframe
+          src="http://localhost:5678/form/388b3a9d-fad7-455b-90b5-fdd38cc3d546"
+          width="100%"
+          height="550"
+          frameborder="0"
+          style="border-radius: 0.75rem; background: transparent; display: block;"
+          allow="geolocation; microphone; camera"
+          loading="lazy"
+          title="Contact Hansel via n8n Form"
+        ></iframe>
+      </div>
+      
+      <div style="margin-top: 1.5rem; text-align: center; border-top: 1px solid #eef2f6; padding-top: 1.5rem;">
+        <p style="color: #4b5563; font-size: 0.95rem;">
+          <strong>Or email me directly:</strong>
+        </p>
+        <a href="mailto:hansel.davis62@gmail.com" style="font-size: 1rem; color: #3b82f6;">hansel.davis62@gmail.com</a>
+        <p style="color: #94a3b8; font-size: 0.8rem; margin-top: 0.75rem;">
+          🔒 Your message is secure and sent directly to my workflow system.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <script>
+  // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -622,22 +700,9 @@
       if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
-  const form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const statusDiv = document.getElementById('formStatus');
-      if (!name || !email || !message) { statusDiv.innerHTML = '<div class="form-error">❌ Please fill in all fields.</div>'; return; }
-      if (!email.includes('@') || !email.includes('.')) { statusDiv.innerHTML = '<div class="form-error">❌ Valid email required.</div>'; return; }
-      statusDiv.innerHTML = '<div class="form-success">✅ Thanks! I’ll get back to you within 24 hours.</div>';
-      form.reset();
-      setTimeout(() => statusDiv.innerHTML = '', 5000);
-    });
-  }
-  console.log('Portfolio with resume link and tab active');
+
+  // Note: n8n form handles its own submission via iframe
+  console.log('Portfolio with n8n form embed');
 </script>
 </body>
 </html>
