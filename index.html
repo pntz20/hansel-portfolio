@@ -1,708 +1,1244 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hansel Davis - Web Developer & Automation Specialist. Building modern web apps, APIs, and intelligent workflow systems. Seeking full-stack or automation engineering roles.">
-  <meta name="keywords" content="web developer, frontend developer, automation specialist, full-stack, react, nodejs, crm administrator, workflow automation">
-  <meta name="author" content="Hansel Davis">
-  <meta property="og:title" content="Hansel Davis · Web Developer & Automation Engineer">
-  <meta property="og:description" content="I build web applications and eliminate busywork with automation. Seeking full-time opportunities in development or automation engineering.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <title>Hansel Davis · Web Developer & Automation Specialist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="icon" type="image/png" href="https://emojicdn.elk.sh/⚡?style=twemoji">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hansel Davis - Web Developer & Automation Specialist. Building modern web apps, APIs, and intelligent workflow systems. Seeking full-stack or automation engineering roles."
+    />
+    <meta
+      name="keywords"
+      content="web developer, frontend developer, automation specialist, full-stack, react, nodejs, crm administrator, workflow automation"
+    />
+    <meta name="author" content="Hansel Davis" />
+    <meta
+      property="og:title"
+      content="Hansel Davis · Web Developer & Automation Engineer"
+    />
+    <meta
+      property="og:description"
+      content="I build web applications and eliminate busywork with automation. Seeking full-time opportunities in development or automation engineering."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Hansel Davis · Web Developer & Automation Specialist</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://emojicdn.elk.sh/⚡?style=twemoji"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f9fafb;
-      color: #111827;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f9fafb;
+        color: #111827;
+        line-height: 1.5;
+        scroll-behavior: smooth;
+      }
 
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
 
-    /* Utility Classes */
-    .text-center {
-      text-align: center;
-    }
-
-    .mt-1 { margin-top: 0.5rem; }
-    .mt-2 { margin-top: 1rem; }
-    .mt-3 { margin-top: 1.5rem; }
-    .mb-1 { margin-bottom: 0.5rem; }
-    .mb-2 { margin-bottom: 1rem; }
-    .mb-3 { margin-bottom: 1.5rem; }
-    .mb-4 { margin-bottom: 2rem; }
-    .py-1 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-    .py-2 { padding-top: 1rem; padding-bottom: 1rem; }
-    .py-3 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-    .py-4 { padding-top: 2rem; padding-bottom: 2rem; }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      background-color: #1f2937;
-      color: white;
-      font-weight: 600;
-      padding: 0.75rem 1.8rem;
-      border-radius: 40px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: 1px solid #1f2937;
-      font-size: 0.95rem;
-      cursor: pointer;
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: #1f2937;
-      border: 1px solid #1f2937;
-    }
-
-    .btn-outline:hover {
-      background: #1f2937;
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: #3b82f6;
-      border-color: #3b82f6;
-    }
-    .btn-primary:hover {
-      background: #2563eb;
-      transform: translateY(-2px);
-    }
-
-    .btn:hover {
-      background: #374151;
-      transform: translateY(-2px);
-    }
-
-    /* Header & Navigation */
-    header {
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(4px);
-      background: rgba(255, 255, 255, 0.95);
-    }
-
-    .nav-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .logo {
-      font-weight: 800;
-      font-size: 1.6rem;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #1f2937, #3b82f6);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 500;
-      color: #1f2937;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: #3b82f6;
-    }
-
-    .resume-tab {
-      background: #1f2937;
-      color: white !important;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .resume-tab:hover {
-      background: #3b82f6;
-      color: white !important;
-      transform: translateY(-2px);
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 4rem 0 3rem 0;
-    }
-
-    .hero-badge {
-      background: #e0e7ff;
-      color: #1e3a8a;
-      padding: 0.25rem 1rem;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      display: inline-block;
-      margin-bottom: 1.5rem;
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-
-    .highlight {
-      background: linear-gradient(120deg, #d9f0ff 0%, #b9e0ff 80%);
-      padding: 0 0.2rem;
-    }
-
-    .hero-sub {
-      font-size: 1.2rem;
-      color: #4b5563;
-      max-width: 720px;
-      margin-bottom: 2rem;
-    }
-
-    /* Cards & Grids */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-    }
-
-    .card {
-      background: white;
-      border-radius: 24px;
-      padding: 1.8rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
-      border: 1px solid #eef2f6;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
-      border-color: #cbd5e1;
-    }
-
-    .card-icon {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      color: #3b82f6;
-    }
-
-    .card h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-
-    .pill {
-      background: #f3f4f6;
-      padding: 0.2rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      display: inline-block;
-      margin-bottom: 1rem;
-      color: #1f2937;
-    }
-
-    .result-stat {
-      font-weight: 700;
-      color: #075985;
-      margin-top: 1rem;
-      border-top: 1px solid #eef2f6;
-      padding-top: 0.8rem;
-      font-size: 0.9rem;
-    }
-
-    /* Experience List */
-    .experience-list ul {
-      margin-left: 1.2rem;
-      margin-top: 0.5rem;
-      color: #4b5563;
-    }
-    .experience-list li {
-      margin-bottom: 0.5rem;
-    }
-    .company-name {
-      font-weight: 600;
-      color: #3b82f6;
-      margin: 0.25rem 0 0.5rem 0;
-    }
-
-    /* Tech Strip */
-    .tech-strip {
-      background: white;
-      border-radius: 60px;
-      padding: 1rem 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.8rem;
-      font-weight: 500;
-      color: #2c3e66;
-      border: 1px solid #eef2f6;
-    }
-
-    /* Contact Form */
-    .contact-form {
-      background: white;
-      padding: 2rem;
-      border-radius: 32px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-      border: 1px solid #eef2f6;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      transition: border-color 0.2s, box-shadow 0.2s;
-      font-size: 1rem;
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 16px;
-      border: 1px solid #d1d5db;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-    }
-
-    .form-success {
-      background: #d1fae5;
-      color: #065f46;
-      padding: 1rem;
-      border-radius: 16px;
-      margin-top: 1rem;
-      text-align: center;
-    }
-
-    .form-error {
-      background: #fee2e2;
-      color: #991b1b;
-      padding: 1rem;
-      border-radius: 16px;
-      margin-top: 1rem;
-      text-align: center;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid #e5e7eb;
-      background: white;
-      margin-top: 2rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .container { padding: 0 1.2rem; }
-      h1 { font-size: 2.3rem; }
-      .nav-flex { flex-direction: column; }
-      .nav-links { justify-content: center; gap: 1rem; }
-      .hero { padding: 2.5rem 0 2rem; }
-      .hero-sub { font-size: 1rem; }
-      .tech-strip { gap: 1rem; padding: 0.8rem 1.2rem; font-size: 0.8rem; }
-      .grid-2, .grid-3 { gap: 1rem; }
-      .card { padding: 1.2rem; }
-      .contact-form { padding: 1.2rem; }
-    }
-
-    @media (max-width: 480px) {
-      h1 { font-size: 1.8rem; }
-      .logo { font-size: 1.3rem; }
-      .btn { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
-      .card h3 { font-size: 1.2rem; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .card, .step { animation: fadeIn 0.4s ease-out forwards; }
-
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #f1f1f1; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="container">
-    <div class="nav-flex">
-      <div class="logo">Hansel<span style="color:#3b82f6;">.dev</span></div>
-      <div class="nav-links">
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#roles">Roles</a>
-        <a href="resume2.html" class="resume-tab"><i class="fas fa-file-alt"></i> Resume</a>
-        <a href="#contact" class="btn-outline btn" style="padding:0.5rem 1.2rem;">Contact →</a>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-badge">⚡ web developer · automation specialist · seeking full-time</div>
-      <h1>I build web apps + systems that eliminate busywork.<br>Let me do it for <span class="highlight">your team</span>.</h1>
-      <p class="hero-sub">Full-stack development · Workflow automation · CRM integration · Process engineering</p>
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="#contact" class="btn">📄 Contact me about opportunities →</a>
-        <a href="#experience" class="btn-outline btn">👔 View my experience</a>
-        <a href="resume2.html" class="btn-outline btn"><i class="fas fa-file-pdf"></i> View Resume</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Me / Professional Summary -->
-  <section class="py-4" style="background: #f3f6fc;">
-    <div class="container">
-      <div class="grid-2">
-        <div>
-          <span class="pill">👋 about me</span>
-          <h2 style="font-size: 2rem; margin-top: 0.5rem;">Hansel — Web developer & automation engineer.</h2>
-          <p style="margin: 1rem 0; line-height: 1.6;">I bridge the gap between development and operational efficiency. Whether I'm building responsive front-end interfaces, designing REST APIs, or connecting CRMs to automate workflows — I create systems that scale and save time.</p>
-          <p style="margin: 1rem 0; line-height: 1.6;">Self-taught, product-minded, and relentless about clean code. I find friction and eliminate it — through custom tools or intelligent automation.</p>
-          <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-            <span style="background: white; padding: 0.25rem 1rem; border-radius: 20px;">📍 Open to remote</span>
-            <span style="background: white; padding: 0.25rem 1rem; border-radius: 20px;">🕒 Full-time · Contract-to-hire</span>
-            <span style="background: white; padding: 0.25rem 1rem; border-radius: 20px;">🌎 Global timezones</span>
-          </div>
-        </div>
-        <div style="background: white; border-radius: 24px; padding: 1.5rem; border: 1px solid #eef2f6;">
-          <h3>📌 Quick stats</h3>
-          <ul style="margin-top: 1rem; list-style: none;">
-            <li style="margin-bottom: 0.75rem;">✅ <strong>4+ years</strong> coding & automation</li>
-            <li style="margin-bottom: 0.75rem;">✅ <strong>12+ web projects</strong> built & deployed</li>
-            <li style="margin-bottom: 0.75rem;">✅ <strong>6+ CRMs</strong> administered & integrated</li>
-            <li style="margin-bottom: 0.75rem;">✅ <strong>30+ workflows</strong> automated (Zapier/Make/n8n)</li>
-            <li style="margin-bottom: 0.75rem;">✅ <strong>80k+ records</strong> cleaned/migrated</li>
-          </ul>
-          <div style="margin-top: 1rem;">
-            <a href="resume2.html" class="btn-outline btn" style="padding:0.4rem 1rem; font-size:0.8rem;"><i class="fas fa-download"></i> Full resume →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Professional Experience - Expanded Roles with Years -->
-  <section class="py-4" id="experience">
-    <div class="container">
-      <div class="text-center mb-3">
-        <span class="pill">💼 professional experience</span>
-        <h2 style="font-size: 2rem;">What I've built and delivered</h2>
-        <p style="color: #4b5563;">Web development · automation engineering · systems integration</p>
-      </div>
-      
-      <div class="experience-list" style="max-width: 900px; margin: 0 auto;">
-        <!-- Front-End Developer -->
-        <div class="card" style="margin-bottom: 1.5rem;">
-          <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.25rem;">
-            <h3 style="margin: 0;">Front-End Developer</h3>
-            <span style="color: #6b7280; font-size: 0.85rem; background: #f3f4f6; padding: 0.2rem 0.7rem; border-radius: 30px;">Jan 2024 – Present</span>
-          </div>
-          <div class="company-name">Creative digital agency · freelance contract</div>
-          <ul>
-            <li>Developed responsive landing pages and interactive components using React, Tailwind CSS, and modern JS, improving load speed by 32%.</li>
-            <li>Built reusable component libraries and optimized cross-browser compatibility for 5+ client projects, reducing revision cycles by 40%.</li>
-            <li>Integrated front-end with REST APIs and implemented dynamic data fetching (Axios, React Query).</li>
-          </ul>
-          <div class="result-stat">📊 Stack: React, Tailwind, Git, Figma integration</div>
-        </div>
-        
-        <!-- Automation & Systems Engineer -->
-        <div class="card" style="margin-bottom: 1.5rem;">
-          <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.25rem;">
-            <h3 style="margin: 0;">Automation & Systems Engineer</h3>
-            <span style="color: #6b7280; font-size: 0.85rem; background: #f3f4f6; padding: 0.2rem 0.7rem; border-radius: 30px;">Jun 2023 – Dec 2024</span>
-          </div>
-          <div class="company-name">PropTech startup · contract</div>
-          <ul>
-            <li>Designed end-to-end automation pipelines connecting HubSpot CRM, Slack, and internal databases, reducing manual data entry by 22+ hours/week.</li>
-            <li>Built custom webhook integrations using Node.js and Express to sync real estate transaction data across 3 platforms.</li>
-            <li>Led CRM migration project (50k+ records) with data deduplication and validation, achieving 99.8% data accuracy.</li>
-            <li>Created internal dashboard (React + Chart.js) to visualize workflow performance metrics for leadership.</li>
-          </ul>
-          <div class="result-stat">⚙️ Tools: Node.js, HubSpot API, Zapier, Make, PostgreSQL basics</div>
-        </div>
-        
-        <!-- Junior Full-Stack Developer -->
-        <div class="card" style="margin-bottom: 1.5rem;">
-          <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.25rem;">
-            <h3 style="margin: 0;">Junior Full-Stack Developer</h3>
-            <span style="color: #6b7280; font-size: 0.85rem; background: #f3f4f6; padding: 0.2rem 0.7rem; border-radius: 30px;">Oct 2022 – May 2023</span>
-          </div>
-          <div class="company-name">TechSMB · internship → part-time</div>
-          <ul>
-            <li>Built and maintained RESTful API endpoints (Express, MongoDB) for a client portal serving 200+ active users.</li>
-            <li>Implemented JWT authentication and role-based access control, improving security compliance.</li>
-            <li>Developed dynamic front-end interfaces using vanilla JavaScript and Bootstrap, reducing page reload dependencies by 60%.</li>
-          </ul>
-          <div class="result-stat">💻 Tech: JavaScript, Express, MongoDB, Git, Postman</div>
-        </div>
-        
-        <!-- CRM Administrator & Operations Analyst -->
-        <div class="card" style="margin-bottom: 1.5rem;">
-          <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.25rem;">
-            <h3 style="margin: 0;">CRM Administrator & Operations Analyst</h3>
-            <span style="color: #6b7280; font-size: 0.85rem; background: #f3f4f6; padding: 0.2rem 0.7rem; border-radius: 30px;">Feb 2021 – Sep 2022</span>
-          </div>
-          <div class="company-name">Real Estate group · full-time</div>
-          <ul>
-            <li>Administered Pipedrive and Follow Up Boss CRMs, creating custom fields, workflows, and reporting dashboards for 15+ agents.</li>
-            <li>Automated lead routing and SMS follow-ups using Twilio API and webhooks, boosting lead response rate from 20% → 85%.</li>
-            <li>Cleaned and standardized 80k+ contact records, reducing duplicate entries by 70%.</li>
-            <li>Documented SOPs and trained staff on automation tools, cutting onboarding time for new hires by 30%.</li>
-          </ul>
-          <div class="result-stat">📈 Impact: saved 15+ hours/week across sales operations</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section class="py-4" id="skills" style="background: #f9fafb;">
-    <div class="container">
-      <div class="text-center mb-3">
-        <span class="pill">🧠 technical skills</span>
-        <h2 style="font-size: 2rem;">Development & automation toolkit</h2>
-      </div>
-      <div class="grid-3">
-        <div class="card"><h3><i class="fab fa-js"></i> Front-End Dev</h3><ul><li>HTML5, CSS3, JavaScript (ES6+)</li><li>React (hooks, context)</li><li>Tailwind CSS, Bootstrap</li><li>Responsive design / Fetch API</li></ul></div>
-        <div class="card"><h3><i class="fas fa-server"></i> Back-End & APIs</h3><ul><li>Node.js / Express</li><li>REST API design & integration</li><li>PostgreSQL / MongoDB basics</li><li>Webhooks & Postman</li></ul></div>
-        <div class="card"><h3><i class="fas fa-robot"></i> Automation & Integration</h3><ul><li>Zapier, Make, n8n</li><li>Google Apps Script</li><li>CRM admin (HubSpot, Pipedrive)</li><li>OpenAI API workflows</li></ul></div>
-        <div class="card"><h3><i class="fas fa-database"></i> Data & Operations</h3><ul><li>Data migration & deduplication</li><li>CSV processing & cleanup</li><li>Process mapping & documentation</li><li>Git / GitHub version control</li></ul></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Ideal Role Section -->
-  <section class="py-4" id="roles">
-    <div class="container text-center">
-      <span class="pill">🎯 roles I'm targeting</span>
-      <h2 style="font-size: 2rem; margin-top: 0.5rem;">I'm looking for a team that values</h2>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem;">
-        <span style="background: #e0e7ff; padding: 0.5rem 1.2rem; border-radius: 40px;">🔧 Process improvement</span>
-        <span style="background: #e0e7ff; padding: 0.5rem 1.2rem; border-radius: 40px;">🤖 Automation culture</span>
-        <span style="background: #e0e7ff; padding: 0.5rem 1.2rem; border-radius: 40px;">💻 Modern web dev</span>
-        <span style="background: #e0e7ff; padding: 0.5rem 1.2rem; border-radius: 40px;">📈 Growth & learning</span>
-        <span style="background: #e0e7ff; padding: 0.5rem 1.2rem; border-radius: 40px;">🌍 Remote-first</span>
-      </div>
-      <div style="max-width: 750px; margin: 2rem auto; background: #f3f6fc; border-radius: 24px; padding: 1.5rem;">
-        <h3>📋 Positions I'm open to</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-top: 1rem; text-align: left;">
-          <div>✓ Web Developer (Front-End / Full-Stack)</div><div>✓ Automation Engineer</div><div>✓ CRM Administrator</div>
-          <div>✓ Operations Analyst</div><div>✓ Junior Full-Stack Developer</div><div>✓ Integration Specialist</div>
-        </div>
-      </div>
-      <div style="margin-top: 1rem;">
-        <a href="resume2.html" class="btn" style="background:#3b82f6; border-color:#3b82f6;"><i class="fas fa-file-alt"></i> View complete resume →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tech Stack Section -->
-  <section class="py-3" style="background: #ffffff; border-top: 1px solid #eef2f6; border-bottom: 1px solid #eef2f6;">
-    <div class="container">
-      <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center;">
-        <div style="flex: 2; min-width: 220px;">
-          <span class="pill">🧰 full stack + automation stack</span>
-          <h2 style="font-size: 1.8rem; margin-top: 0.5rem;">Tools & platforms I master</h2>
-          <p style="color: #2c3e66;">React, Node.js, Express, MongoDB, PostgreSQL, Zapier, Make, n8n, Google Apps Script, Airtable, HubSpot, Pipedrive, Twilio, Git, REST APIs, webhooks — I adapt to your stack.</p>
-        </div>
-        <div style="flex: 1.5;">
-          <div class="tech-strip"><span>⚛️ React</span> <span>⚡ Node.js</span> <span>🔄 Zapier/Make</span> <span>📊 PostgreSQL</span> <span>🤖 OpenAI API</span> <span>📁 Git</span></div>
-          <p class="mt-2" style="font-size: 0.85rem; color: #4b5563; text-align: center;">+ any platform with an API or a spreadsheet export</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <!-- n8n Form Trigger Embed -->
-<section id="n8n-form-embed" style="
-    background: #f8fafc;
-    border-radius: 1.5rem;
-    padding: 2.5rem 2rem;
-    margin: 4rem auto;
-    max-width: 900px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e2e8f0;
-">
-    <div style="text-align: center; margin-bottom: 2rem;">
-        <h2 style="
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        ">
-            📬 Send a Direct Message
-        </h2>
-        <p style="
-            color: #475569;
-            font-size: 1.05rem;
-            max-width: 500px;
-            margin: 0 auto;
-        ">
-            Use this form to reach me instantly — I respond within 24 hours.
-        </p>
-    </div>
-
-    <div style="
-        background: white;
-        border-radius: 1rem;
-        padding: 1.5rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
-        border: 1px solid #eef2f6;
-    ">
-        <iframe
-            src="http://localhost:5678/form/388b3a9d-fad7-455b-90b5-fdd38cc3d546"
-            width="100%"
-            height="600"
-            frameborder="0"
-            style="border-radius: 0.75rem; background: transparent;"
-            allow="geolocation; microphone; camera"
-            loading="lazy"
-            title="Contact Hansel via n8n Form"
-        ></iframe>
-    </div>
-
-    <p style="
+      /* Utility Classes */
+      .text-center {
         text-align: center;
-        font-size: 0.85rem;
-        color: #94a3b8;
+      }
+
+      .mt-1 {
+        margin-top: 0.5rem;
+      }
+      .mt-2 {
+        margin-top: 1rem;
+      }
+      .mt-3 {
         margin-top: 1.5rem;
-    ">
-        🔒 Your message is secure and sent directly to my workflow system.
-    </p>
-</section>
+      }
+      .mb-1 {
+        margin-bottom: 0.5rem;
+      }
+      .mb-2 {
+        margin-bottom: 1rem;
+      }
+      .mb-3 {
+        margin-bottom: 1.5rem;
+      }
+      .mb-4 {
+        margin-bottom: 2rem;
+      }
+      .py-1 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      .py-2 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .py-3 {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+      .py-4 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
 
-  <!-- CTA Banner -->
-  <section style="background: #1f2937; color: white; border-radius: 48px; margin: 2rem auto 2rem; max-width: 1000px; padding: 2.5rem 2rem; text-align: center;">
-    <div class="container" style="max-width: 800px;">
-      <span style="background: #3b82f6; padding: 0.2rem 1rem; border-radius: 60px; font-size: 0.8rem; font-weight: 600;">⬇️ open to work</span>
-      <h2 style="font-size: 2.2rem; margin: 1rem 0; font-weight: 700;">Let's build & automate together</h2>
-      <p style="margin-bottom: 2rem; opacity: 0.85;">Web Developer + Automation Specialist · Remote or hybrid · Full-time / Contract</p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="#contact" style="background: white; color: #1f2937; padding: 0.7rem 1.8rem; border-radius: 40px; font-weight: 700; text-decoration: none;">📅 Contact me →</a>
-        <a href="resume2.html" style="background: transparent; border: 1px solid white; padding: 0.7rem 1.8rem; border-radius: 40px; text-decoration: none; color: white;"><i class="fas fa-file-alt"></i> View Resume</a>
-      </div>
-    </div>
-  </section>
-</main>
+      /* Buttons */
+      .btn {
+        display: inline-block;
+        background-color: #1f2937;
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 1.8rem;
+        border-radius: 40px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        border: 1px solid #1f2937;
+        font-size: 0.95rem;
+        cursor: pointer;
+      }
 
-<footer>
-  <div class="container">
-    <div class="py-3" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
-      <div><span class="logo" style="font-size: 1.2rem;">Hansel Davis · Web Dev & Automation</span><p style="font-size: 0.8rem; color: #6b7280; margin-top: 0.5rem;">© 2025 — Open to work · Full-time · Remote</p></div>
-      <div style="display: flex; gap: 2rem;"><a href="resume2.html" style="text-decoration: none; color: #4b5563;"><i class="fas fa-file-alt"></i> Resume</a><a href="#" style="text-decoration: none; color: #4b5563;"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="#" style="text-decoration: none; color: #4b5563;"><i class="fab fa-github"></i> GitHub</a></div>
-    </div>
-  </div>
-</footer>
+      .btn-outline {
+        background: transparent;
+        color: #1f2937;
+        border: 1px solid #1f2937;
+      }
 
-<!-- Contact Section with n8n Form -->
-<section class="py-4" id="contact" style="background: #f9fafb;">
-  <div class="container">
-    <div class="text-center mb-3">
-      <span class="pill">📬 let's talk</span>
-      <h2 style="font-size: 2rem; font-weight: 700;">Ready to add a developer & automator to your team?</h2>
-      <p style="color: #4b5563; max-width: 600px; margin: 0 auto;">Send me a note about your open role — I'll reply within 24 hours.</p>
-    </div>
-    
-    <!-- n8n Form Embed -->
-    <div style="max-width: 700px; margin: 2rem auto;">
-      <div style="
+      .btn-outline:hover {
+        background: #1f2937;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: #3b82f6;
+        border-color: #3b82f6;
+      }
+      .btn-primary:hover {
+        background: #2563eb;
+        transform: translateY(-2px);
+      }
+
+      .btn:hover {
+        background: #374151;
+        transform: translateY(-2px);
+      }
+
+      /* Header & Navigation */
+      header {
         background: white;
-        border-radius: 1.5rem;
-        padding: 1.5rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+        border-bottom: 1px solid #e5e7eb;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(4px);
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      .nav-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .logo {
+        font-weight: 800;
+        font-size: 1.6rem;
+        letter-spacing: -0.02em;
+        background: linear-gradient(135deg, #1f2937, #3b82f6);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        font-weight: 500;
+        color: #1f2937;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: #3b82f6;
+      }
+
+      .resume-tab {
+        background: #1f2937;
+        color: white !important;
+        padding: 0.4rem 1rem;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .resume-tab:hover {
+        background: #3b82f6;
+        color: white !important;
+        transform: translateY(-2px);
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 4rem 0 3rem 0;
+      }
+
+      .hero-badge {
+        background: #e0e7ff;
+        color: #1e3a8a;
+        padding: 0.25rem 1rem;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 1.5rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      .highlight {
+        background: linear-gradient(120deg, #d9f0ff 0%, #b9e0ff 80%);
+        padding: 0 0.2rem;
+      }
+
+      .hero-sub {
+        font-size: 1.2rem;
+        color: #4b5563;
+        max-width: 720px;
+        margin-bottom: 2rem;
+      }
+
+      /* Cards & Grids */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.8rem;
+      }
+
+      .card {
+        background: white;
+        border-radius: 24px;
+        padding: 1.8rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02),
+          0 1px 2px rgba(0, 0, 0, 0.03);
         border: 1px solid #eef2f6;
-      ">
-        <iframe
-          src="http://localhost:5678/form/388b3a9d-fad7-455b-90b5-fdd38cc3d546"
-          width="100%"
-          height="550"
-          frameborder="0"
-          style="border-radius: 0.75rem; background: transparent; display: block;"
-          allow="geolocation; microphone; camera"
-          loading="lazy"
-          title="Contact Hansel via n8n Form"
-        ></iframe>
-      </div>
-      
-      <div style="margin-top: 1.5rem; text-align: center; border-top: 1px solid #eef2f6; padding-top: 1.5rem;">
-        <p style="color: #4b5563; font-size: 0.95rem;">
-          <strong>Or email me directly:</strong>
-        </p>
-        <a href="mailto:hansel.davis62@gmail.com" style="font-size: 1rem; color: #3b82f6;">hansel.davis62@gmail.com</a>
-        <p style="color: #94a3b8; font-size: 0.8rem; margin-top: 0.75rem;">
-          🔒 Your message is secure and sent directly to my workflow system.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
 
-<script>
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+        border-color: #cbd5e1;
+      }
 
-  // Note: n8n form handles its own submission via iframe
-  console.log('Portfolio with n8n form embed');
-</script>
-</body>
+      .card-icon {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        color: #3b82f6;
+      }
+
+      .card h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+      }
+
+      .pill {
+        background: #f3f4f6;
+        padding: 0.2rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        display: inline-block;
+        margin-bottom: 1rem;
+        color: #1f2937;
+      }
+
+      .result-stat {
+        font-weight: 700;
+        color: #075985;
+        margin-top: 1rem;
+        border-top: 1px solid #eef2f6;
+        padding-top: 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      /* Experience List */
+      .experience-list ul {
+        margin-left: 1.2rem;
+        margin-top: 0.5rem;
+        color: #4b5563;
+      }
+      .experience-list li {
+        margin-bottom: 0.5rem;
+      }
+      .company-name {
+        font-weight: 600;
+        color: #3b82f6;
+        margin: 0.25rem 0 0.5rem 0;
+      }
+
+      /* Tech Strip */
+      .tech-strip {
+        background: white;
+        border-radius: 60px;
+        padding: 1rem 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.8rem;
+        font-weight: 500;
+        color: #2c3e66;
+        border: 1px solid #eef2f6;
+      }
+
+      /* Contact Form */
+      .contact-form {
+        background: white;
+        padding: 2rem;
+        border-radius: 32px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        border: 1px solid #eef2f6;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        transition: border-color 0.2s, box-shadow 0.2s;
+        font-size: 1rem;
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 16px;
+        border: 1px solid #d1d5db;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      .form-success {
+        background: #d1fae5;
+        color: #065f46;
+        padding: 1rem;
+        border-radius: 16px;
+        margin-top: 1rem;
+        text-align: center;
+      }
+
+      .form-error {
+        background: #fee2e2;
+        color: #991b1b;
+        padding: 1rem;
+        border-radius: 16px;
+        margin-top: 1rem;
+        text-align: center;
+      }
+
+      /* Footer */
+      footer {
+        border-top: 1px solid #e5e7eb;
+        background: white;
+        margin-top: 2rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 1.2rem;
+        }
+        h1 {
+          font-size: 2.3rem;
+        }
+        .nav-flex {
+          flex-direction: column;
+        }
+        .nav-links {
+          justify-content: center;
+          gap: 1rem;
+        }
+        .hero {
+          padding: 2.5rem 0 2rem;
+        }
+        .hero-sub {
+          font-size: 1rem;
+        }
+        .tech-strip {
+          gap: 1rem;
+          padding: 0.8rem 1.2rem;
+          font-size: 0.8rem;
+        }
+        .grid-2,
+        .grid-3 {
+          gap: 1rem;
+        }
+        .card {
+          padding: 1.2rem;
+        }
+        .contact-form {
+          padding: 1.2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+        .logo {
+          font-size: 1.3rem;
+        }
+        .btn {
+          padding: 0.6rem 1.2rem;
+          font-size: 0.85rem;
+        }
+        .card h3 {
+          font-size: 1.2rem;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .card,
+      .step {
+        animation: fadeIn 0.4s ease-out forwards;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="nav-flex">
+          <div class="logo">Hansel<span style="color: #3b82f6">.dev</span></div>
+          <div class="nav-links">
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#roles">Roles</a>
+            <a href="resume2.html" class="resume-tab"
+              ><i class="fas fa-file-alt"></i> Resume</a
+            >
+            <a
+              href="#contact"
+              class="btn-outline btn"
+              style="padding: 0.5rem 1.2rem"
+              >Contact →</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-badge">
+            ⚡ web developer · automation specialist · seeking full-time
+          </div>
+          <h1>
+            I build web apps + systems that eliminate busywork.<br />Let me do
+            it for <span class="highlight">your team</span>.
+          </h1>
+          <p class="hero-sub">
+            Full-stack development · Workflow automation · CRM integration ·
+            Process engineering
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+            <a href="#contact" class="btn"
+              >📄 Contact me about opportunities →</a
+            >
+            <a href="#experience" class="btn-outline btn"
+              >👔 View my experience</a
+            >
+            <a href="resume2.html" class="btn-outline btn"
+              ><i class="fas fa-file-pdf"></i> View Resume</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- About Me / Professional Summary -->
+      <section class="py-4" style="background: #f3f6fc">
+        <div class="container">
+          <div class="grid-2">
+            <div>
+              <span class="pill">👋 about me</span>
+              <h2 style="font-size: 2rem; margin-top: 0.5rem">
+                Hansel — Web developer & automation engineer.
+              </h2>
+              <p style="margin: 1rem 0; line-height: 1.6">
+                I bridge the gap between development and operational efficiency.
+                Whether I'm building responsive front-end interfaces, designing
+                REST APIs, or connecting CRMs to automate workflows — I create
+                systems that scale and save time.
+              </p>
+              <p style="margin: 1rem 0; line-height: 1.6">
+                Self-taught, product-minded, and relentless about clean code. I
+                find friction and eliminate it — through custom tools or
+                intelligent automation.
+              </p>
+              <div
+                style="
+                  display: flex;
+                  gap: 1rem;
+                  margin-top: 1.5rem;
+                  flex-wrap: wrap;
+                "
+              >
+                <span
+                  style="
+                    background: white;
+                    padding: 0.25rem 1rem;
+                    border-radius: 20px;
+                  "
+                  >📍 Open to remote</span
+                >
+                <span
+                  style="
+                    background: white;
+                    padding: 0.25rem 1rem;
+                    border-radius: 20px;
+                  "
+                  >🕒 Full-time · Contract-to-hire</span
+                >
+                <span
+                  style="
+                    background: white;
+                    padding: 0.25rem 1rem;
+                    border-radius: 20px;
+                  "
+                  >🌎 Global timezones</span
+                >
+              </div>
+            </div>
+            <div
+              style="
+                background: white;
+                border-radius: 24px;
+                padding: 1.5rem;
+                border: 1px solid #eef2f6;
+              "
+            >
+              <h3>📌 Quick stats</h3>
+              <ul style="margin-top: 1rem; list-style: none">
+                <li style="margin-bottom: 0.75rem">
+                  ✅ <strong>4+ years</strong> coding & automation
+                </li>
+                <li style="margin-bottom: 0.75rem">
+                  ✅ <strong>12+ web projects</strong> built & deployed
+                </li>
+                <li style="margin-bottom: 0.75rem">
+                  ✅ <strong>6+ CRMs</strong> administered & integrated
+                </li>
+                <li style="margin-bottom: 0.75rem">
+                  ✅ <strong>30+ workflows</strong> automated (Zapier/Make/n8n)
+                </li>
+                <li style="margin-bottom: 0.75rem">
+                  ✅ <strong>80k+ records</strong> cleaned/migrated
+                </li>
+              </ul>
+              <div style="margin-top: 1rem">
+                <a
+                  href="resume2.html"
+                  class="btn-outline btn"
+                  style="padding: 0.4rem 1rem; font-size: 0.8rem"
+                  ><i class="fas fa-download"></i> Full resume →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Professional Experience - Expanded Roles with Years -->
+      <section class="py-4" id="experience">
+        <div class="container">
+          <div class="text-center mb-3">
+            <span class="pill">💼 professional experience</span>
+            <h2 style="font-size: 2rem">What I've built and delivered</h2>
+            <p style="color: #4b5563">
+              Web development · automation engineering · systems integration
+            </p>
+          </div>
+
+          <div class="experience-list" style="max-width: 900px; margin: 0 auto">
+            <!-- AI Agent Builder - NEW EXPERIENCE ADDED -->
+            <div class="card" style="margin-bottom: 1.5rem">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  flex-wrap: wrap;
+                  margin-bottom: 0.25rem;
+                "
+              >
+                <h3 style="margin: 0">AI Agent Builder</h3>
+                <span
+                  style="
+                    color: #6b7280;
+                    font-size: 0.85rem;
+                    background: #f3f4f6;
+                    padding: 0.2rem 0.7rem;
+                    border-radius: 30px;
+                  "
+                  >Jan 2025 – Present</span
+                >
+              </div>
+              <div class="company-name">Freelance · AI Agent Development</div>
+              <ul>
+                <li>
+                  Designed and deployed custom AI agents using OpenAI API,
+                  LangChain, and vector databases (Pinecone) to automate
+                  customer support, lead qualification, and content generation
+                  workflows.
+                </li>
+                <li>
+                  Built a multi-agent system that reduced response time for
+                  client inquiries by 85% by automatically triaging and
+                  answering common questions via Slack and email.
+                </li>
+                <li>
+                  Created an AI-powered lead scoring agent integrated with
+                  HubSpot CRM, increasing sales conversion rate by 22% through
+                  intelligent prioritization.
+                </li>
+                <li>
+                  Developed a document summarization agent that processes 100+
+                  page reports into executive summaries in under 2 minutes using
+                  GPT-4 and LangChain.
+                </li>
+                <li>
+                  Implemented retrieval-augmented generation (RAG) pipelines
+                  that provide accurate, context-aware responses based on
+                  proprietary company data.
+                </li>
+              </ul>
+              <div class="result-stat">
+                🧠 Stack: OpenAI API, LangChain, Pinecone, Hugging Face, Python,
+                FastAPI, n8n, HubSpot API
+              </div>
+            </div>
+
+            <!-- Front-End Developer -->
+            <div class="card" style="margin-bottom: 1.5rem">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  flex-wrap: wrap;
+                  margin-bottom: 0.25rem;
+                "
+              >
+                <h3 style="margin: 0">Front-End Developer</h3>
+                <span
+                  style="
+                    color: #6b7280;
+                    font-size: 0.85rem;
+                    background: #f3f4f6;
+                    padding: 0.2rem 0.7rem;
+                    border-radius: 30px;
+                  "
+                  >Jan 2024 – Present</span
+                >
+              </div>
+              <div class="company-name">
+                Creative digital agency · freelance contract
+              </div>
+              <ul>
+                <li>
+                  Developed responsive landing pages and interactive components
+                  using React, Tailwind CSS, and modern JS, improving load speed
+                  by 32%.
+                </li>
+                <li>
+                  Built reusable component libraries and optimized cross-browser
+                  compatibility for 5+ client projects, reducing revision cycles
+                  by 40%.
+                </li>
+                <li>
+                  Integrated front-end with REST APIs and implemented dynamic
+                  data fetching (Axios, React Query).
+                </li>
+              </ul>
+              <div class="result-stat">
+                📊 Stack: React, Tailwind, Git, Figma integration
+              </div>
+            </div>
+
+            <!-- Automation & Systems Engineer -->
+            <div class="card" style="margin-bottom: 1.5rem">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  flex-wrap: wrap;
+                  margin-bottom: 0.25rem;
+                "
+              >
+                <h3 style="margin: 0">Automation & Systems Engineer</h3>
+                <span
+                  style="
+                    color: #6b7280;
+                    font-size: 0.85rem;
+                    background: #f3f4f6;
+                    padding: 0.2rem 0.7rem;
+                    border-radius: 30px;
+                  "
+                  >Jun 2023 – Dec 2024</span
+                >
+              </div>
+              <div class="company-name">PropTech startup · contract</div>
+              <ul>
+                <li>
+                  Designed end-to-end automation pipelines connecting HubSpot
+                  CRM, Slack, and internal databases, reducing manual data entry
+                  by 22+ hours/week.
+                </li>
+                <li>
+                  Built custom webhook integrations using Node.js and Express to
+                  sync real estate transaction data across 3 platforms.
+                </li>
+                <li>
+                  Led CRM migration project (50k+ records) with data
+                  deduplication and validation, achieving 99.8% data accuracy.
+                </li>
+                <li>
+                  Created internal dashboard (React + Chart.js) to visualize
+                  workflow performance metrics for leadership.
+                </li>
+              </ul>
+              <div class="result-stat">
+                ⚙️ Tools: Node.js, HubSpot API, Zapier, Make, PostgreSQL basics
+              </div>
+            </div>
+
+            <!-- Junior Full-Stack Developer -->
+            <div class="card" style="margin-bottom: 1.5rem">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  flex-wrap: wrap;
+                  margin-bottom: 0.25rem;
+                "
+              >
+                <h3 style="margin: 0">Junior Full-Stack Developer</h3>
+                <span
+                  style="
+                    color: #6b7280;
+                    font-size: 0.85rem;
+                    background: #f3f4f6;
+                    padding: 0.2rem 0.7rem;
+                    border-radius: 30px;
+                  "
+                  >Oct 2022 – May 2023</span
+                >
+              </div>
+              <div class="company-name">TechSMB · internship → part-time</div>
+              <ul>
+                <li>
+                  Built and maintained RESTful API endpoints (Express, MongoDB)
+                  for a client portal serving 200+ active users.
+                </li>
+                <li>
+                  Implemented JWT authentication and role-based access control,
+                  improving security compliance.
+                </li>
+                <li>
+                  Developed dynamic front-end interfaces using vanilla
+                  JavaScript and Bootstrap, reducing page reload dependencies by
+                  60%.
+                </li>
+              </ul>
+              <div class="result-stat">
+                💻 Tech: JavaScript, Express, MongoDB, Git, Postman
+              </div>
+            </div>
+
+            <!-- CRM Administrator & Operations Analyst -->
+            <div class="card" style="margin-bottom: 1.5rem">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  flex-wrap: wrap;
+                  margin-bottom: 0.25rem;
+                "
+              >
+                <h3 style="margin: 0">
+                  CRM Administrator & Operations Analyst
+                </h3>
+                <span
+                  style="
+                    color: #6b7280;
+                    font-size: 0.85rem;
+                    background: #f3f4f6;
+                    padding: 0.2rem 0.7rem;
+                    border-radius: 30px;
+                  "
+                  >Feb 2021 – Sep 2022</span
+                >
+              </div>
+              <div class="company-name">Real Estate group · full-time</div>
+              <ul>
+                <li>
+                  Administered Pipedrive and Follow Up Boss CRMs, creating
+                  custom fields, workflows, and reporting dashboards for 15+
+                  agents.
+                </li>
+                <li>
+                  Automated lead routing and SMS follow-ups using Twilio API and
+                  webhooks, boosting lead response rate from 20% → 85%.
+                </li>
+                <li>
+                  Cleaned and standardized 80k+ contact records, reducing
+                  duplicate entries by 70%.
+                </li>
+                <li>
+                  Documented SOPs and trained staff on automation tools, cutting
+                  onboarding time for new hires by 30%.
+                </li>
+              </ul>
+              <div class="result-stat">
+                📈 Impact: saved 15+ hours/week across sales operations
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="py-4" id="skills" style="background: #f9fafb">
+        <div class="container">
+          <div class="text-center mb-3">
+            <span class="pill">🧠 technical skills</span>
+            <h2 style="font-size: 2rem">Development & automation toolkit</h2>
+          </div>
+          <div class="grid-3">
+            <div class="card">
+              <h3><i class="fab fa-js"></i> Front-End Dev</h3>
+              <ul>
+                <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                <li>React (hooks, context)</li>
+                <li>Tailwind CSS, Bootstrap</li>
+                <li>Responsive design / Fetch API</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3><i class="fas fa-server"></i> Back-End & APIs</h3>
+              <ul>
+                <li>Node.js / Express</li>
+                <li>REST API design & integration</li>
+                <li>PostgreSQL / MongoDB basics</li>
+                <li>Webhooks & Postman</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3><i class="fas fa-robot"></i> Automation & Integration</h3>
+              <ul>
+                <li>Zapier, Make, n8n</li>
+                <li>Google Apps Script</li>
+                <li>CRM admin (HubSpot, Pipedrive)</li>
+                <li>OpenAI API workflows</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3><i class="fas fa-database"></i> Data & Operations</h3>
+              <ul>
+                <li>Data migration & deduplication</li>
+                <li>CSV processing & cleanup</li>
+                <li>Process mapping & documentation</li>
+                <li>Git / GitHub version control</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ideal Role Section -->
+      <section class="py-4" id="roles">
+        <div class="container text-center">
+          <span class="pill">🎯 roles I'm targeting</span>
+          <h2 style="font-size: 2rem; margin-top: 0.5rem">
+            I'm looking for a team that values
+          </h2>
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+              gap: 1rem;
+              margin-top: 2rem;
+            "
+          >
+            <span
+              style="
+                background: #e0e7ff;
+                padding: 0.5rem 1.2rem;
+                border-radius: 40px;
+              "
+              >🔧 Process improvement</span
+            >
+            <span
+              style="
+                background: #e0e7ff;
+                padding: 0.5rem 1.2rem;
+                border-radius: 40px;
+              "
+              >🤖 Automation culture</span
+            >
+            <span
+              style="
+                background: #e0e7ff;
+                padding: 0.5rem 1.2rem;
+                border-radius: 40px;
+              "
+              >💻 Modern web dev</span
+            >
+            <span
+              style="
+                background: #e0e7ff;
+                padding: 0.5rem 1.2rem;
+                border-radius: 40px;
+              "
+              >📈 Growth & learning</span
+            >
+            <span
+              style="
+                background: #e0e7ff;
+                padding: 0.5rem 1.2rem;
+                border-radius: 40px;
+              "
+              >🌍 Remote-first</span
+            >
+          </div>
+          <div
+            style="
+              max-width: 750px;
+              margin: 2rem auto;
+              background: #f3f6fc;
+              border-radius: 24px;
+              padding: 1.5rem;
+            "
+          >
+            <h3>📋 Positions I'm open to</h3>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 0.75rem;
+                margin-top: 1rem;
+                text-align: left;
+              "
+            >
+              <div>✓ Web Developer (Front-End / Full-Stack)</div>
+              <div>✓ Automation Engineer</div>
+              <div>✓ CRM Administrator</div>
+              <div>✓ Operations Analyst</div>
+              <div>✓ Junior Full-Stack Developer</div>
+              <div>✓ Integration Specialist</div>
+            </div>
+          </div>
+          <div style="margin-top: 1rem">
+            <a
+              href="resume2.html"
+              class="btn"
+              style="background: #3b82f6; border-color: #3b82f6"
+              ><i class="fas fa-file-alt"></i> View complete resume →</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stack Section -->
+      <section
+        class="py-3"
+        style="
+          background: #ffffff;
+          border-top: 1px solid #eef2f6;
+          border-bottom: 1px solid #eef2f6;
+        "
+      >
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 2rem;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div style="flex: 2; min-width: 220px">
+              <span class="pill">🧰 full stack + automation stack</span>
+              <h2 style="font-size: 1.8rem; margin-top: 0.5rem">
+                Tools & platforms I master
+              </h2>
+              <p style="color: #2c3e66">
+                React, Node.js, Express, MongoDB, PostgreSQL, Zapier, Make, n8n,
+                Google Apps Script, Airtable, HubSpot, Pipedrive, Twilio, Git,
+                REST APIs, webhooks — I adapt to your stack.
+              </p>
+            </div>
+            <div style="flex: 1.5">
+              <div class="tech-strip">
+                <span>⚛️ React</span> <span>⚡ Node.js</span>
+                <span>🔄 Zapier/Make</span> <span>📊 PostgreSQL</span>
+                <span>🤖 OpenAI API</span> <span>📁 Git</span>
+              </div>
+              <p
+                class="mt-2"
+                style="font-size: 0.85rem; color: #4b5563; text-align: center"
+              >
+                + any platform with an API or a spreadsheet export
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+
+      <!-- CTA Banner -->
+      <section
+        style="
+          background: #1f2937;
+          color: white;
+          border-radius: 48px;
+          margin: 2rem auto 2rem;
+          max-width: 1000px;
+          padding: 2.5rem 2rem;
+          text-align: center;
+        "
+      >
+        <div class="container" style="max-width: 800px">
+          <span
+            style="
+              background: #3b82f6;
+              padding: 0.2rem 1rem;
+              border-radius: 60px;
+              font-size: 0.8rem;
+              font-weight: 600;
+            "
+            >⬇️ open to work</span
+          >
+          <h2 style="font-size: 2.2rem; margin: 1rem 0; font-weight: 700">
+            Let's build & automate together
+          </h2>
+          <p style="margin-bottom: 2rem; opacity: 0.85">
+            Web Developer + Automation Specialist · Remote or hybrid · Full-time
+            / Contract
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a
+              href="#contact"
+              style="
+                background: white;
+                color: #1f2937;
+                padding: 0.7rem 1.8rem;
+                border-radius: 40px;
+                font-weight: 700;
+                text-decoration: none;
+              "
+              >📅 Contact me →</a
+            >
+            <a
+              href="resume2.html"
+              style="
+                background: transparent;
+                border: 1px solid white;
+                padding: 0.7rem 1.8rem;
+                border-radius: 40px;
+                text-decoration: none;
+                color: white;
+              "
+              ><i class="fas fa-file-alt"></i> View Resume</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div
+          class="py-3"
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+          "
+        >
+          <div>
+            <span class="logo" style="font-size: 1.2rem"
+              >Hansel Davis · Web Dev & Automation</span
+            >
+            <p style="font-size: 0.8rem; color: #6b7280; margin-top: 0.5rem">
+              © 2025 — Open to work · Full-time · Remote
+            </p>
+          </div>
+          <div style="display: flex; gap: 2rem">
+            <a href="resume2.html" style="text-decoration: none; color: #4b5563"
+              ><i class="fas fa-file-alt"></i> Resume</a
+            ><a href="#" style="text-decoration: none; color: #4b5563"
+              ><i class="fab fa-linkedin"></i> LinkedIn</a
+            ><a href="#" style="text-decoration: none; color: #4b5563"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Contact Section with n8n Form -->
+    <section class="py-4" id="contact" style="background: #f9fafb">
+      <div class="container">
+        <div class="text-center mb-3">
+          <span class="pill">📬 let's talk</span>
+          <h2 style="font-size: 2rem; font-weight: 700">
+            Ready to add a developer & automator to your team?
+          </h2>
+          <p style="color: #4b5563; max-width: 600px; margin: 0 auto">
+            Send me a note about your open role — I'll reply within 24 hours.
+          </p>
+        </div>
+
+        <!-- n8n Form Embed -->
+        <div style="max-width: 700px; margin: 2rem auto">
+          <div
+            style="
+              background: white;
+              border-radius: 1.5rem;
+              padding: 1.5rem;
+              box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+              border: 1px solid #eef2f6;
+            "
+          >
+            <iframe
+              src="http://localhost:5678/form/388b3a9d-fad7-455b-90b5-fdd38cc3d546"
+              width="100%"
+              height="550"
+              frameborder="0"
+              style="
+                border-radius: 0.75rem;
+                background: transparent;
+                display: block;
+              "
+              allow="geolocation; microphone; camera"
+              loading="lazy"
+              title="Contact Hansel via n8n Form"
+            ></iframe>
+          </div>
+
+          <div
+            style="
+              margin-top: 1.5rem;
+              text-align: center;
+              border-top: 1px solid #eef2f6;
+              padding-top: 1.5rem;
+            "
+          >
+            <p style="color: #4b5563; font-size: 0.95rem">
+              <strong>Or email me directly:</strong>
+            </p>
+            <a
+              href="mailto:hansel.davis62@gmail.com"
+              style="font-size: 1rem; color: #3b82f6"
+              >hansel.davis62@gmail.com</a
+            >
+            <p style="color: #94a3b8; font-size: 0.8rem; margin-top: 0.75rem">
+              🔒 Your message is secure and sent directly to my workflow system.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target)
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      // Note: n8n form handles its own submission via iframe
+      console.log("Portfolio with n8n form embed");
+    </script>
+  </body>
 </html>
