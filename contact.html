@@ -24,74 +24,6 @@
       href="https://emojicdn.elk.sh/⚡?style=twemoji"
     />
     <link rel="stylesheet" href="style.css" />
-    <style>
-      .contact-page-hero {
-        padding: 3.5rem 0 2.5rem;
-        text-align: center;
-      }
-
-      .contact-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .contact-method {
-        background: white;
-        border-radius: 24px;
-        padding: 1.8rem;
-        border: 1px solid #eef2f6;
-        text-align: center;
-        transition: transform 0.2s, box-shadow 0.2s;
-      }
-
-      .contact-method:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
-        border-color: #cbd5e1;
-      }
-
-      .contact-method .icon {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: #3b82f6;
-      }
-
-      .mailto-form input,
-      .mailto-form textarea {
-        width: 100%;
-        padding: 0.75rem;
-        border-radius: 16px;
-        border: 1px solid #d1d5db;
-        font-size: 1rem;
-        transition: border-color 0.2s, box-shadow 0.2s;
-        font-family: "Inter", sans-serif;
-      }
-
-      .mailto-form input:focus,
-      .mailto-form textarea:focus {
-        outline: none;
-        border-color: #3b82f6;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-      }
-
-      .mailto-form label {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 0.4rem;
-        font-size: 0.9rem;
-      }
-
-      .mailto-form .field {
-        margin-bottom: 1rem;
-      }
-
-      @media (max-width: 480px) {
-        .contact-page-hero h1 {
-          font-size: 1.8rem;
-        }
-      }
-    </style>
   </head>
   <body>
     <header>
@@ -114,16 +46,11 @@
     </header>
 
     <main>
-      <section class="contact-page-hero">
+      <section class="hero">
         <div class="container">
           <span class="hero-badge">📬 let's talk</span>
-          <h1 style="font-size: 2.8rem; font-weight: 800; margin: 1rem 0 0.5rem">
-            Get in touch
-          </h1>
-          <p
-            class="hero-sub"
-            style="max-width: 600px; margin: 0 auto 0"
-          >
+          <h1>Get in touch</h1>
+          <p class="hero-sub">
             Tell me about your project or opportunity — I'll reply within 24
             hours.
           </p>
@@ -132,12 +59,10 @@
 
       <section class="py-4">
         <div class="container">
-          <div class="contact-grid">
-            <div class="contact-method">
-              <div class="icon">📧</div>
-              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem">
-                Email directly
-              </h3>
+          <div class="grid-3">
+            <div class="card text-center">
+              <div class="card-icon">📧</div>
+              <h3>Email directly</h3>
               <p style="color: #4b5563; margin-bottom: 1rem; font-size: 0.95rem">
                 Prefer your own email client? Reach me at:
               </p>
@@ -148,27 +73,20 @@
               >
             </div>
 
-            <div class="contact-method">
-              <div class="icon">🚀</div>
-              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem">
-                What I'm open to
-              </h3>
+            <div class="card text-center">
+              <div class="card-icon">🚀</div>
+              <h3>What I'm open to</h3>
               <p style="color: #4b5563; margin-bottom: 0.5rem">
                 Full-time, contract-to-hire, or automation projects.
               </p>
-              <a
-                href="resume2.html"
-                class="btn-outline btn"
-                style="padding: 0.4rem 1rem; font-size: 0.9rem"
-                ><i class="fas fa-file-alt"></i> View resume</a
-              >
+              <a href="resume2.html" class="btn-outline btn" style="padding: 0.4rem 1rem; font-size: 0.9rem">
+                <i class="fas fa-file-alt"></i> View resume
+              </a>
             </div>
 
-            <div class="contact-method">
-              <div class="icon">🌍</div>
-              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem">
-                Response time
-              </h3>
+            <div class="card text-center">
+              <div class="card-icon">🌍</div>
+              <h3>Response time</h3>
               <p style="color: #4b5563; margin-bottom: 0.5rem">
                 I typically reply within 24 hours.
               </p>
@@ -178,8 +96,8 @@
             </div>
           </div>
 
-          <div style="max-width: 700px; margin: 2.5rem auto 0">
-            <div class="card">
+          <div style="max-width: 720px; margin: 3rem auto 0">
+            <div class="contact-form">
               <h2
                 style="
                   font-size: 1.6rem;
@@ -187,65 +105,77 @@
                   margin-bottom: 0.5rem;
                 "
               >
-                Fill the form, send from your inbox
+                Send a message
               </h2>
               <p style="color: #4b5563; margin-bottom: 1.5rem">
-                Complete the fields below and your default email app will open
-                with a pre-filled message.
+                Fill out the form below and I'll get back to you as soon as
+                possible.
               </p>
 
               <form
-                id="contact-form"
-                class="contact-form"
                 action="https://formsubmit.co/hansel.davis62@gmail.com"
                 method="POST"
               >
                 <div class="field">
-                  <label for="name">Your name</label>
+                  <label for="name">Full name <span style="color: #ef4444">*</span></label>
                   <input
                     type="text"
                     name="name"
                     id="name"
                     placeholder="Jane Smith"
                     required
+                    autocomplete="name"
                   />
                 </div>
+
                 <div class="field">
-                  <label for="email">Your email</label>
+                  <label for="email">Email <span style="color: #ef4444">*</span></label>
                   <input
                     type="email"
                     name="email"
                     id="email"
-                    placeholder="jane@example.com"
+                    placeholder="you@example.com"
+                    required
+                    autocomplete="email"
                   />
                 </div>
+
                 <div class="field">
-                  <label for="subject">Subject</label>
+                  <label for="subject">Subject <span style="color: #ef4444">*</span></label>
+
                   <input
                     type="text"
                     name="subject"
                     id="subject"
                     placeholder="Opportunity / Project / Question"
                     required
+                    autocomplete="off"
                   />
                 </div>
+
                 <div class="field">
-                  <label for="message">Message</label>
+                  <label for="message">Message <span style="color: #ef4444">*</span></label>
                   <textarea
                     name="message"
                     id="message"
-                    rows="5"
                     placeholder="Briefly describe what you're looking for..."
                     required
+                    rows="5"
                   ></textarea>
                 </div>
-                <input type="text" name="_honey" style="display:none" />
+
+                <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" />
                 <input
                   type="hidden"
                   name="_subject"
                   value="New portfolio contact"
                 />
-                <button type="submit" class="btn btn-primary" style="width: 100%">
+
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  style="width: 100%"
+                >
                   <i class="fas fa-paper-plane"></i> Send Message
                 </button>
               </form>
