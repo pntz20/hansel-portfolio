@@ -6,7 +6,7 @@ Reference repo: `E:\hansel-portfolio`
 ## Notes about Hansel
 - Starting to integrate AI into his general workflow
 - Site focuses on web development + automation engineering
-- Currently using an embedded local n8n form for contact
+- Contact form uses Formsubmit relay to hansel.davis62@gmail.com; static deploy-friendly
 
 ---
 
@@ -15,7 +15,7 @@ Reference repo: `E:\hansel-portfolio`
 - [ ] Replace placeholder social links in footer (`href="#"` for LinkedIn/GitHub) with real profiles.
 - [ ] Make contact email consistent across meta tags, footer, and any fallback copy.
 - [x] Replace/verify the n8n embed `http://localhost:5678/...` with a public URL or hosted fallback form.
-  Implemented `contact.html` using `mailto:` so messages open in the visitor's email client.
+  Implemented `contact.html` with a static POST form routed through Formsubmit.
 - [ ] Update meta title/description/OG copy to reflect current focus.
 - [ ] Add `og:image` and `twitter:image`.
 - [ ] Ensure `https` for CDNs, external assets, and form embeds; add `rel="noopener"` to external links.
@@ -43,3 +43,9 @@ Reference repo: `E:\hansel-portfolio`
 1. Start with social/contact/SEO cleanup.
 2. Then extract inline styles into `style.css`.
 3. Then add the Projects section.
+
+## Contact Form
+- Service: Formsubmit
+- Email: hansel.davis62@gmail.com
+- Endpoint: https://formsubmit.co/hansel.davis62@gmail.com
+- Notes: plain HTML POST, no local backend needed.

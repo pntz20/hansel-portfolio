@@ -194,20 +194,36 @@
                 with a pre-filled message.
               </p>
 
-              <form id="mailto-form" class="mailto-form">
+              <form
+                id="contact-form"
+                class="contact-form"
+                action="https://formsubmit.co/hansel.davis62@gmail.com"
+                method="POST"
+              >
                 <div class="field">
                   <label for="name">Your name</label>
                   <input
                     type="text"
+                    name="name"
                     id="name"
                     placeholder="Jane Smith"
                     required
                   />
                 </div>
                 <div class="field">
+                  <label for="email">Your email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="jane@example.com"
+                  />
+                </div>
+                <div class="field">
                   <label for="subject">Subject</label>
                   <input
                     type="text"
+                    name="subject"
                     id="subject"
                     placeholder="Opportunity / Project / Question"
                     required
@@ -216,38 +232,23 @@
                 <div class="field">
                   <label for="message">Message</label>
                   <textarea
+                    name="message"
                     id="message"
                     rows="5"
                     placeholder="Briefly describe what you're looking for..."
                     required
                   ></textarea>
                 </div>
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  style="width: 100%"
-                >
-                  <i class="fas fa-paper-plane"></i> Open Email Client
+                <input type="text" name="_honey" style="display:none" />
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New portfolio contact"
+                />
+                <button type="submit" class="btn btn-primary" style="width: 100%">
+                  <i class="fas fa-paper-plane"></i> Send Message
                 </button>
               </form>
-
-              <div
-                style="
-                  margin-top: 1.5rem;
-                  padding-top: 1.5rem;
-                  border-top: 1px solid #eef2f6;
-                  text-align: center;
-                "
-              >
-                <p style="color: #6b7280; font-size: 0.9rem">
-                  <strong>Prefer direct?</strong> Email me at
-                  <a
-                    href="mailto:hansel.davis62@gmail.com"
-                    style="color: #3b82f6; text-decoration: none"
-                    >hansel.davis62@gmail.com</a
-                  >
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -294,35 +295,5 @@
         </div>
       </div>
     </footer>
-
-    <script>
-      const contactForm = document.getElementById('mailto-form');
-      if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-
-          const name = document.getElementById('name').value.trim();
-          const subject = encodeURIComponent(
-            document.getElementById('subject').value.trim()
-          );
-          const message = encodeURIComponent(
-            `Hi Hansel,\n\n${document.getElementById('message').value.trim()}\n\nBest,\n${name}`
-          );
-          const email = 'hansel.davis62@gmail.com';
-
-          const btn = contactForm.querySelector('button[type="submit"]');
-          const originalText = btn.innerHTML;
-          btn.innerHTML = 'Opening email client...';
-          btn.disabled = true;
-
-          setTimeout(() => {
-            window.location.href = `mailto:${email}?subject=${subject}&body=${message}`;
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-            contactForm.reset();
-          }, 250);
-        });
-      }
-    </script>
   </body>
 </html>
