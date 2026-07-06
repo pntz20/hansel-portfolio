@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docs · AI Ticket Classifier · Hansel Davis</title>
+    <link rel="stylesheet" href="../../style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="nav-flex">
+          <div class="logo">Hansel<span style="color: #0072f5">.dev</span></div>
+          <div class="nav-links">
+            <a href="../aiclassifier/index.html">Project</a>
+            <a href="../../index.html">Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <span class="hero-badge">📄 client-ready docs</span>
+          <h1>Project documentation</h1>
+          <p class="hero-sub">SOP, logic/rules, and QA checks for handoff or audit review.</p>
+          <nav class="tabs" style="margin-top:1rem; display:flex; gap:.8rem; flex-wrap:wrap">
+            <button class="btn tab-btn active" data-tab="sop">SOP</button>
+            <button class="btn btn-outline tab-btn" data-tab="logic">Logic</button>
+            <button class="btn btn-outline tab-btn" data-tab="checks">Checks</button>
+          </nav>
+        </div>
+      </section>
+
+      <section class="py-4">
+        <div class="container">
+          <div class="card doc-panel" id="doc-panel">
+            <div id="doc-content">
+              <div id="tab-sop" class="tab-panel"><div class="doc-body"><h2>AI Ticket Classifier — SOP</h2><ul><li>Project: AI Support Triage + Routing</li><li>Status: implemented</li><li>Owner: Hansel Davis</li><li>Contact: hansel.davis62@gmail.com</li></ul><h3>Problem</h3><p>Support team manually spent 10+ hours/week tagging and routing customer emails.</p><h3>Outcome</h3><p>Faster, consistent triage with human review for sensitive or low-confidence tickets.</p><h3>Quantitative outcome</h3><ul><li>Saved: ~12 hours/week to strategic work</li><li>First-response accuracy improved</li><li>Human review load: reduced ~50%</li></ul><h3>Recurrence / cadence</h3><ul><li>Every incoming email/system event</li><li>Weekly review of false positives/negatives</li><li>Monthly prompt/rule calibration</li></ul><h3>Platforms / tools</h3><ul><li>Intake: email feed / system form</li><li>Classification: AI classifier API</li><li>Action layer: automation platform / webhook</li><li>Task tool: project management tool</li><li>Optional: customer-facing auto-reply for low-priority cases</li></ul><h3>Triggers</h3><ul><li>New support message</li><li>Escalation keywords detected</li><li>Threshold confidence change</li></ul><h3>Fallback behavior</h3><ul><li>Low confidence → human review queue</li><li>High severity → notify owner regardless of confidence</li><li>API failure → treat as unclassified; default to human queue</li></ul><h3>Handoff</h3><ul><li>Prompt/rules owned by operator</li><li>Calibration examples logged per week</li><li>Support agent can override classification in task tool</li></ul><h3>Proof</h3><ul><li>See: <code>logic.md</code></li><li>See: <code>checks.md</code></li><li>See demo: <code>/projects/aiclassifier/index.html#demo</code></li></ul></div></div>
+              <div id="tab-logic" class="tab-panel" style="display:none"><div class="doc-body"><h2>AI Ticket Classifier — Flow / Rules</h2><h3>High-level flow</h3><ol><li>Receive ticket text</li><li>Extract signals: urgency, topic, customer tier</li><li>Classify: category + priority</li><li>Create structured task in project tool</li><li>If allowed: send templated auto-reply</li><li>Log confidence + review outcome</li></ol><h3>Category map</h3><ul><li>auth, billing, incident, feature, general</li></ul><h3>Priority map</h3><ul><li>high: outage, payment failure, security signal</li><li>standard: questions, requests, low urgency</li></ul><h3>Human review conditions</h3><ul><li>Confidence below configured threshold</li><li>Sensitive keywords</li><li>Customer tier VIP</li></ul></div></div>
+              <div id="tab-checks" class="tab-panel" style="display:none"><div class="doc-body"><h2>AI Ticket Classifier — Validation / QA Checklist</h2><h3>Setup</h3><ul><li class="unchecked">Categories aligned with support team taxonomy</li><li class="unchecked">Priority thresholds agreed with support lead</li><li class="unchecked">Auto-reply rules scoped to low-risk topics only</li></ul><h3>Behavior checks</h3><ul><li class="unchecked">Ticket creates task in tool</li><li class="unchecked">Owner/channel matches category</li><li class="unchecked">High-priority alert sent</li><li class="unchecked">Sensitive topic routes to human review</li></ul><h3>Accuracy checks</h3><ul><li class="unchecked">Sample week reviewed for misclassification</li><li class="unchecked">False-positive auto-reply reduced over time</li><li class="unchecked">Customer satisfaction not degraded</li></ul></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="py-3" style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap">
+          <span class="logo" style="font-size:1.1rem">Hansel Davis · Automation Generalist</span>
+          <a href="../contact.html" class="btn">Book audit →</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      [...document.querySelectorAll('.tab-btn')].forEach((btn) => btn.addEventListener('click', () => {
+        const key = btn.dataset.tab;
+        [...document.querySelectorAll('.tab-btn')].forEach((t) => {
+          t.classList.toggle('active', t.dataset.tab === key);
+          t.classList.toggle('btn-outline', t.dataset.tab !== key);
+        });
+        [...document.querySelectorAll('.tab-panel')].forEach((p) => p.style.display = 'none');
+        document.getElementById('tab-' + key).style.display = 'block';
+      }));
+    </script>
+
+    <style>
+      .tabs .active { background: #171717; color: #fff; border-color: #171717; }
+      .doc-body h2 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.015em; margin: 1.4rem 0 .6rem; }
+      .doc-body h3 { font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; margin: 1.2rem 0 .5rem; }
+      .doc-body p { color: #4d4d4d; line-height: 1.6; margin: .6rem 0; }
+      .doc-body ul, .doc-body ol { padding-left: 1.2rem; margin: .5rem 0; }
+      .doc-body li { color: #171717; margin: .25rem 0; }
+      .doc-body li.checked { color: #065f46; }
+      .doc-body li.unchecked { color: #6b7280; }
+      .doc-body code { background: #f3f4f6; padding: 1px 6px; border-radius: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+      .tab-btn { min-width: 120px; justify-content: center; }
+    </style>
+  </body>
+</html>

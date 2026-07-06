@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project: Lead Router · Hansel Davis</title>
+    <link rel="stylesheet" href="../../style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="nav-flex">
+          <div class="logo">Hansel<span style="color: #3b82f6">.dev</span></div>
+          <div class="nav-links">
+            <a href="../../index.html#experience">Back to Portfolio</a>
+            <a href="./index.html" class="resume-tab">This Project</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <span class="hero-badge">⏱️ case study</span>
+          <h1>
+            Lead response from 5 hours → 90 seconds<br />
+            <span class="highlight">no leads missed</span>
+          </h1>
+          <p class="hero-sub">
+            Problem: form entries sat in email until manual triage and assignment.
+            Solution: rule-based router: location/priority → instant Slack/SMS notification.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+            <a href="#demo" class="btn">▶ Live Proof</a>
+            <a href="./docs.html" class="btn-outline btn">📄 Docs</a>
+            <a href="./sop.md" class="btn-outline btn">📎 SOP</a>
+            <a href="./logic.md" class="btn-outline btn">🗺️ Logic</a>
+            <a href="./checks.md" class="btn-outline btn">✅ Checks</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-4" style="background: #f3f6fc">
+        <div class="container">
+          <div class="grid-2">
+            <div class="card">
+              <span class="pill">🧩 before</span>
+              <h3>The friction</h3>
+              <ul>
+                <li>Incoming leads stuck in email</li>
+                <li>Manual assignment by availability</li>
+                <li>Long response times caused drop-off</li>
+              </ul>
+              <div class="result-stat">Response time: hrs to days</div>
+            </div>
+            <div class="card">
+              <span class="pill">✅ after</span>
+              <h3>The fix</h3>
+              <ul>
+                <li>Rules: location, priority, source → owner + channel</li>
+                <li>Instant Slack + SMS for high-priority leads</li>
+                <li>Auto-reply and failover channel if owner unavailable</li>
+              </ul>
+              <div class="result-stat">Saved: 15 min/day per agent · 0 leads missed</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-4" id="demo">
+        <div class="container">
+          <div class="text-center mb-3">
+            <span class="pill">▶ browser proof</span>
+            <h2 style="font-size: 2rem">Router simulator</h2>
+            <p style="color: #4b5563">Submit a fake lead and watch routing rules assign the right owner/channel.</p>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <h3 style="margin-bottom: 1rem">Lead form</h3>
+              <div class="field">
+                <label>Name</label><br />
+                <input id="lead-name" value="Prospect A" style="padding: 0.5rem; border-radius: 12px; border: 1px solid #e2e8f0; width: 100%; margin-top: 0.3rem" />
+              </div>
+              <div style="margin-top: 1rem" class="field">
+                <label>Location</label><br />
+                <select id="lead-location" style="padding: 0.5rem; border-radius: 12px; border: 1px solid #e2e8f0; width: 100%; margin-top: 0.3rem">
+                  <option value="ny">NY</option>
+                  <option value="ca">CA</option>
+                  <option value="tx">TX</option>
+                </select>
+              </div>
+              <div style="margin-top: 1rem" class="field">
+                <label>Priority</label><br />
+                <select id="lead-priority" style="padding: 0.5rem; border-radius: 12px; border: 1px solid #e2e8f0; width: 100%; margin-top: 0.3rem">
+                  <option value="high">High</option>
+                  <option value="standard">Standard</option>
+                </select>
+              </div>
+              <button class="btn" style="margin-top: 1.25rem; width: 100%" onclick="routeLead()">Route lead</button>
+            </div>
+            <div class="card">
+              <h3 style="margin-bottom: 1rem">Route result</h3>
+              <pre id="route-output" style="background: #f9fafb; padding: 1rem; border-radius: 16px; min-height: 180px; white-space: pre-wrap">Waiting for input...</pre>
+              <div style="margin-top: 1rem; background: #dbeafe; border-radius: 12px; padding: 0.75rem 1rem; font-size: 0.9rem">
+                Routing rules: <span id="rule-summary">location / priority</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-4" style="background: #ffffff; border-top: 1px solid #eef2f6; border-bottom: 1px solid #eef2f6">
+        <div class="container">
+          <h2 style="font-size: 2rem">When I talk about this in interviews</h2>
+          <div class="steps" style="margin-top: 1.5rem">
+            <div class="step">
+              <div class="step-number">1</div>
+              <h3>Frame the cost</h3>
+              <p>“A hot lead sitting for hours usually cooled off before the first reply.”</p>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <h3>Explain the rule</h3>
+              <p>“Route by location and urgency so the right channel notifies the right agent.”</p>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <h3>Show reliability</h3>
+              <p>“If the first channel fails, failover ensures the lead still gets touched immediately.”</p>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <h3>Translate to value</h3>
+              <p>“At 5 hours → 90 seconds, the team gets consistent follow-up at any volume.”</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div
+          class="py-3"
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+          "
+        >
+          <div>
+            <span class="logo" style="font-size: 1.2rem">Hansel Davis · Automation Generalist</span>
+            <p style="font-size: 0.8rem; color: #6b7280; margin-top: 0.5rem">© 2025</p>
+          </div>
+          <a href="../contact.html" class="btn">Book audit →</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function routeLead() {
+        const name = document.getElementById('lead-name').value || 'Lead';
+        const location = document.getElementById('lead-location').value;
+        const priority = document.getElementById('lead-priority').value;
+        const owners = { ny: 'Agent NY', ca: 'Agent CA', tx: 'Agent TX' };
+        const owner = owners[location] || 'Ops';
+        const channel = priority === 'high' ? 'Slack + SMS' : 'Slack';
+        const latency = priority === 'high' ? '~90 seconds' : '~2 minutes';
+        const out = [
+          `Lead: ${name}`,
+          `Route: ${location.toUpperCase()} · ${priority}`,
+          `Owner: ${owner}`,
+          `Channel: ${channel}`,
+          `Latency target: ${latency}`,
+          `Status: notified`,
+          `Fallback: email if ${channel} fails in 60s`,
+        ];
+        document.getElementById('route-output').textContent = out.join('\n');
+      }
+      routeLead();
+    </script>
+  </body>
+</html>

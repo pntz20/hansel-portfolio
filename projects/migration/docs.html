@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docs · 50k Row Migration · Hansel Davis</title>
+    <link rel="stylesheet" href="../../style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="nav-flex">
+          <div class="logo">Hansel<span style="color: #0072f5">.dev</span></div>
+          <div class="nav-links">
+            <a href="../migration/index.html">Project</a>
+            <a href="../../index.html">Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <span class="hero-badge">📄 client-ready docs</span>
+          <h1>Project documentation</h1>
+          <p class="hero-sub">SOP, logic/rules, and QA checks for handoff or audit review.</p>
+          <nav class="tabs" style="margin-top:1rem; display:flex; gap:.8rem; flex-wrap:wrap">
+            <button class="btn tab-btn active" data-tab="sop">SOP</button>
+            <button class="btn btn-outline tab-btn" data-tab="logic">Logic</button>
+            <button class="btn btn-outline tab-btn" data-tab="checks">Checks</button>
+          </nav>
+        </div>
+      </section>
+
+      <section class="py-4">
+        <div class="container">
+          <div class="card doc-panel" id="doc-panel">
+            <div id="doc-content">
+              <div id="tab-sop" class="tab-panel"><div class="doc-body"><h2>50k Row Migration — SOP</h2><ul><li>Project: CRM Data Migration + Cleanup</li><li>Status: implemented</li><li>Owner: Hansel Davis</li><li>Contact: hansel.davis62@gmail.com</li></ul><h3>Problem</h3><p>Client CSV had inconsistent formats, duplicate contacts, missing fields, and the new CRM rejected bulk import.</p><h3>Outcome</h3><p>Produced CSV that passed CRM import in under 48 hours.</p><h3>Quantitative outcome</h3><ul><li>Migration went from estimated 2 weeks → 48 hours</li><li>Duplicate records resolved through candidate surfacing</li><li>Data accuracy: 99.8%</li></ul><h3>Recurrence / cadence</h3><ul><li>One-time migration with post-import validation pass</li><li>Ongoing: repeat cleanup on each weekly export</li></ul><h3>Platforms / tools</h3><ul><li>Source: CSV export from old system</li><li>Processing pipeline: CSV normalization + fuzzy matching + rules</li><li>Destination: CRM import + staging validation file</li></ul><h3>Triggers</h3><ul><li>Source CSV export available</li><li>CRM import error feedback</li><li>Operator validation signoff</li></ul><h3>Fallback behavior</h3><ul><li>Unresolved rows exported to quarantine file</li><li>Quarantine rows reviewed by operator before second pass</li><li>Import rollback plan documented</li></ul><h3>Handoff</h3><ul><li>Quarantine workflow in repo</li><li>Validation checklist in <code>checks.md</code></li><li>Operator handles exceptions, not automation</li></ul><h3>Proof</h3><ul><li>See: <code>logic.md</code></li><li>See: <code>checks.md</code></li><li>See demo: <code>/projects/migration/index.html#demo</code></li></ul></div></div>
+              <div id="tab-logic" class="tab-panel" style="display:none"><div class="doc-body"><h2>50k Row Migration — Flow / Rules</h2><h3>High-level flow</h3><ol><li>Load raw export</li><li>Normalize per-field:<ul><li>Name: trim, collapse spaces, title case</li><li>Phone: digits only, E.164 candidate</li><li>State/region: uppercase, short form</li></ul></li><li>Build composite key for identity</li><li>Fuzzy match against existing CRM contacts</li><li>Route:<ul><li>unique → insert candidate</li><li>probable match → operator review queue</li><li>invalid → quarantine</li></ul></li><li>Validate required fields before export</li></ol><h3>De-dup logic</h3><ul><li>Candidate: normalized name + phone</li><li>False-positive risk: shared household phones</li><li>Mitigation: operator review for high-similarity matches</li></ul><h3>Validation rules</h3><ul><li>Required: name, phone OR email</li><li>Phone length rule: if numeric digits &lt; 7, quarantine</li><li>State length rule: max 2 chars after normalization</li></ul><h3>Export format</h3><ul><li>Clean CSV headers match CRM import spec</li><li>Quarantine file has review columns: reason, original row, normalized row</li></ul></div></div>
+              <div id="tab-checks" class="tab-panel" style="display:none"><div class="doc-body"><h2>50k Row Migration — Validation / QA Checklist</h2><h3>Setup</h3><ul><li class="unchecked">Raw export preserved as archive before processing</li><li class="unchecked">CRM import spec confirmed (headers, required fields, max row count)</li><li class="unchecked">Thresholds set: phone min length, name min length, required fields</li></ul><h3>Behavior checks</h3><ul><li class="unchecked">Clean output row count equals normalized unique count</li><li class="unchecked">No duplicate keys in output</li><li class="unchecked">No invalid phone length rows in clean output</li><li class="unchecked">Quarantine file created when source contains errors</li></ul><h3>Import checks</h3><ul><li class="unchecked">Sample first import accepted</li><li class="unchecked">Full import accepted</li><li class="unchecked">Post-import sample checked for content fidelity</li></ul><h3>Rollback / safety</h3><ul><li class="unchecked">Archive of raw and clean files kept for verification</li><li class="unchecked">Import confirmation saved</li></ul></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="py-3" style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap">
+          <span class="logo" style="font-size:1.1rem">Hansel Davis · Automation Generalist</span>
+          <a href="../contact.html" class="btn">Book audit →</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      [...document.querySelectorAll('.tab-btn')].forEach((btn) => btn.addEventListener('click', () => {
+        const key = btn.dataset.tab;
+        [...document.querySelectorAll('.tab-btn')].forEach((t) => {
+          t.classList.toggle('active', t.dataset.tab === key);
+          t.classList.toggle('btn-outline', t.dataset.tab !== key);
+        });
+        [...document.querySelectorAll('.tab-panel')].forEach((p) => p.style.display = 'none');
+        document.getElementById('tab-' + key).style.display = 'block';
+      }));
+    </script>
+
+    <style>
+      .tabs .active { background: #171717; color: #fff; border-color: #171717; }
+      .doc-body h2 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.015em; margin: 1.4rem 0 .6rem; }
+      .doc-body h3 { font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; margin: 1.2rem 0 .5rem; }
+      .doc-body p { color: #4d4d4d; line-height: 1.6; margin: .6rem 0; }
+      .doc-body ul, .doc-body ol { padding-left: 1.2rem; margin: .5rem 0; }
+      .doc-body li { color: #171717; margin: .25rem 0; }
+      .doc-body li.checked { color: #065f46; }
+      .doc-body li.unchecked { color: #6b7280; }
+      .doc-body code { background: #f3f4f6; padding: 1px 6px; border-radius: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+      .tab-btn { min-width: 120px; justify-content: center; }
+    </style>
+  </body>
+</html>

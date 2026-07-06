@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project: AI Ticket Classifier · Hansel Davis</title>
+    <link rel="stylesheet" href="../../style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="nav-flex">
+          <div class="logo">Hansel<span style="color: #3b82f6">.dev</span></div>
+          <div class="nav-links">
+            <a href="../../index.html#experience">Back to Portfolio</a>
+            <a href="./index.html" class="resume-tab">This Project</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <span class="hero-badge">🤖 case study</span>
+          <h1>
+            Support ticket categorization on autopilot<br />
+            <span class="highlight">human in the loop</span>
+          </h1>
+          <p class="hero-sub">
+            Problem: team spent 10+ hours/week manually tagging/routing customer emails.
+            Solution: AI classifier + automation pipeline: email → category + priority → task → optional auto-reply.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+            <a href="#demo" class="btn">▶ Live Proof</a>
+            <a href="./docs.html" class="btn-outline btn">📄 Docs</a>
+            <a href="./sop.md" class="btn-outline btn">📎 SOP</a>
+            <a href="./logic.md" class="btn-outline btn">🗺️ Logic</a>
+            <a href="./checks.md" class="btn-outline btn">✅ Checks</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-4" style="background: #f3f6fc">
+        <div class="container">
+          <div class="grid-2">
+            <div class="card">
+              <span class="pill">🧩 before</span>
+              <h3>The friction</h3>
+              <ul>
+                <li>Inbox triage was slow and inconsistent</li>
+                <li>Priority missed between technicians</li>
+                <li>Repetitive category tagging</li>
+              </ul>
+              <div class="result-stat">Manual work: ~10 hrs/week</div>
+            </div>
+            <div class="card">
+              <span class="pill">✅ after</span>
+              <h3>The fix</h3>
+              <ul>
+                <li>Email text → category + priority</li>
+                <li>Auto-create task in project tool</li>
+                <li>Auto-reply only for low-priority, confirmed categories</li>
+                <li>Operator review queue for edge cases</li>
+              </ul>
+              <div class="result-stat">Recovered: 12 hrs/week in strategic work</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-4" id="demo">
+        <div class="container">
+          <div class="text-center mb-3">
+            <span class="pill">▶ browser proof</span>
+            <h2 style="font-size: 2rem">Classifier simulator</h2>
+            <p style="color: #4b5563">Type a support message and see category, priority, and suggested action.</p>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <h3 style="margin-bottom: 1rem">Customer message</h3>
+              <textarea
+                id="ticket-text"
+                rows="6"
+                style="width: 100%; padding: 0.9rem; border-radius: 16px; border: 1px solid #e2e8f0; font-family: inherit"
+              >I can’t log in and my payment failed twice.</textarea>
+              <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap">
+                <button class="btn" onclick="classifyTicket()">Classify</button>
+                <button class="btn-outline btn" onclick="loadSample(0)">Sample 1</button>
+                <button class="btn-outline btn" onclick="loadSample(1)">Sample 2</button>
+                <button class="btn-outline btn" onclick="loadSample(2)">Sample 3</button>
+              </div>
+            </div>
+            <div class="card">
+              <h3 style="margin-bottom: 1rem">Classification result</h3>
+              <pre id="ticket-output" style="background: #f9fafb; padding: 1rem; border-radius: 16px; min-height: 180px; white-space: pre-wrap">Waiting for input...</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-4" style="background: #ffffff; border-top: 1px solid #eef2f6; border-bottom: 1px solid #eef2f6">
+        <div class="container">
+          <h2 style="font-size: 2rem">When I talk about this in interviews</h2>
+          <div class="steps" style="margin-top: 1.5rem">
+            <div class="step">
+              <div class="step-number">1</div>
+              <h3>Name the waste</h3>
+              <p>“Triage by email was costing the team 10+ hours a week on repetitive reads.”</p>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <h3>Show ownership</h3>
+              <p>“I kept a human-in-the-loop queue for low-confidence or sensitive tickets.”</p>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <h3>Emphasize fairness</h3>
+              <p>“Classifiers assist routing; they don’t replace the agent with customer contact unless confidence is high.”</p>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <h3>Tie to result</h3>
+              <p>“The team moved from reactive email triage to structured tasks with accurate priority.”</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div
+          class="py-3"
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+          "
+        >
+          <div>
+            <span class="logo" style="font-size: 1.2rem">Hansel Davis · Automation Generalist</span>
+            <p style="font-size: 0.8rem; color: #6b7280; margin-top: 0.5rem">© 2025</p>
+          </div>
+          <a href="../contact.html" class="btn">Book audit →</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const samples = [
+        'I can’t log in and my payment failed twice.',
+        'Feature request: please add bulk export for reports.',
+        'The app is completely broken for our team after yesterday’s update.',
+      ];
+
+      function loadSample(i) {
+        document.getElementById('ticket-text').value = samples[i];
+      }
+
+      function classifyTicket() {
+        const text = document.getElementById('ticket-text').value || '';
+        const lower = text.toLowerCase();
+        const category =
+          lower.includes('login') || lower.includes('password')
+            ? 'auth'
+            : lower.includes('payment') || lower.includes('charge') || lower.includes('billing')
+              ? 'billing'
+              : lower.includes('bug') || lower.includes('broken') || lower.includes('error')
+                ? 'incident'
+                : lower.includes('feature') || lower.includes('request') || lower.includes('export')
+                  ? 'feature'
+                  : 'general';
+        const priority =
+          lower.includes('broken') || lower.includes('failed') || lower.includes('outage')
+            ? 'high'
+            : lower.includes('payment') || lower.includes('urgent')
+              ? 'high'
+              : 'standard';
+        const action =
+          priority === 'high'
+            ? 'Create P1 task + notify owner immediately'
+            : category === 'feature'
+              ? 'Create P3 task + route to product intake'
+              : 'Create task + route to support backlog';
+        const out = [
+          `Category: ${category}`,
+          `Priority: ${priority}`,
+          `Action: ${action}`,
+          `Confidence: demo mode`,
+          `Human review: required for sensitive data`,
+        ];
+        document.getElementById('ticket-output').textContent = out.join('\n');
+      }
+      classifyTicket();
+    </script>
+  </body>
+</html>

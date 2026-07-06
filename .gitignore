@@ -1,0 +1,16 @@
+# Private/local only
+INTERVIEW_WALKTHROUGH.md
+
+# Dependencies / OS / editor junk
+node_modules/
+dist/
+build/
+.env
+.env.*
+.idea/
+.vscode/
+*.swp
+*.tmp
+*.log
+Thumbs.db
+.DS_Store

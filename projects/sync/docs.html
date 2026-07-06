@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docs · Multi-Platform Sync · Hansel Davis</title>
+    <link rel="stylesheet" href="../../style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="nav-flex">
+          <div class="logo">Hansel<span style="color: #0072f5">.dev</span></div>
+          <div class="nav-links">
+            <a href="../sync/index.html">Project</a>
+            <a href="../../index.html">Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <span class="hero-badge">📄 client-ready docs</span>
+          <h1>Project documentation</h1>
+          <p class="hero-sub">SOP, logic/rules, and QA checks for handoff or audit review.</p>
+          <nav class="tabs" style="margin-top:1rem; display:flex; gap:.8rem; flex-wrap:wrap">
+            <button class="btn tab-btn active" data-tab="sop">SOP</button>
+            <button class="btn btn-outline tab-btn" data-tab="logic">Logic</button>
+            <button class="btn btn-outline tab-btn" data-tab="checks">Checks</button>
+          </nav>
+        </div>
+      </section>
+
+      <section class="py-4">
+        <div class="container">
+          <div class="card doc-panel" id="doc-panel">
+            <div id="doc-content">
+              <div id="tab-sop" class="tab-panel"><div class="doc-body"><h2>Multi-Platform Sync — SOP</h2><ul><li>Project: Multi-Platform Sync Automation</li><li>Status: implemented</li><li>Owner: Hansel Davis</li><li>Contact: hansel.davis62@gmail.com</li></ul><h3>Problem</h3><p>Admin staff manually re-entered data from 3 disconnected SaaS tools into a master tracking sheet. This caused delayed updates, inconsistent data, and dropped handoffs.</p><h3>Outcome</h3><p>Eliminated manual re-entry. Data moved automatically on change, with a single source of truth.</p><h3>Quantitative outcome</h3><ul><li>Saved: 9 hours/week</li><li>Manual data entry: zero</li><li>SLA risk: low — failures alert instead of disappearing</li></ul><h3>Recurrence / cadence</h3><ul><li>Near real-time on change</li><li>Batch reconciliation: nightly validation</li><li>Review cadence: weekly rule audit with operator</li></ul><h3>Platforms / tools</h3><ul><li>Master data store: spreadsheet</li><li>Source 1: form intake</li><li>Source 2: CRM</li><li>Source 3: internal webhook / API</li><li>Automation layer: API + webhook triggers</li></ul><h3>Triggers</h3><ul><li>New form submission</li><li>CRM field change for lead status / owner</li><li>Explicit reconciliation timer</li></ul><h3>Fallback behavior</h3><ul><li>Primary: attempt live sync</li><li>Fallback: email alert to ops</li><li>Recovery: retry queue with idempotency check</li></ul><h3>Handoff</h3><ul><li>Operator owns routing rules</li><li>Every routing logic change is a config change, no code deploy</li><li>Weekly report: sync success/failure per source</li></ul><h3>Proof</h3><ul><li>See: <code>logic.md</code></li><li>See: <code>checks.md</code></li><li>See demo: <code>/projects/sync/index.html#demo</code></li></ul></div></div>
+              <div id="tab-logic" class="tab-panel" style="display:none"><div class="doc-body"><h2>Multi-Platform Sync — Flow / Rules</h2><h3>High-level flow</h3><ol><li>Event emitted from source</li><li>Normalize to master schema</li><li>Dedupe by external ID or composite key</li><li>Write to master store</li><li>Push change to CRM + notify Slack/email</li><li>Log success/failure</li></ol><h3>Routing logic</h3><ul><li>Source = form → create contact → notify owner</li><li>Source = crm status change → update owner + notify ops</li><li>Source = internal system → audit log + reconciliation flag</li></ul><h3>Error behavior</h3><ul><li>On failure: queue retry, send ops alert</li><li>After 3 failures: pause queue, notify ops to review schema drift</li></ul><h3>Monitoring signals</h3><ul><li>Events processed/min</li><li>Failure rate</li><li>P95 latency from trigger to master write</li></ul></div></div>
+              <div id="tab-checks" class="tab-panel" style="display:none"><div class="doc-body"><h2>Multi-Platform Sync — Validation / QA Checklist</h2><h3>Setup</h3><ul><li class="unchecked">Each source has mapped event schema</li><li class="unchecked">Composite key chosen: avoids false dedupe</li><li class="unchecked">Idempotency key set for retries</li></ul><h3>Behavior checks</h3><ul><li class="unchecked">Form submit creates master record</li><li class="unchecked">CRM update overwrites same record</li><li class="unchecked">Failed sync does not create duplicates</li><li class="unchecked">Retry succeeds within 3 attempts</li><li class="unchecked">Ops alert received on failure</li></ul><h3>Data checks</h3><ul><li class="unchecked">7-day sample: zero duplicate master records</li><li class="unchecked">All required fields populated for CRM import</li><li class="unchecked">Timestamps monotonic</li></ul><h3>Handoff completeness</h3><ul><li class="unchecked">Operator has read access to logs</li><li class="unchecked">On-call knows retry queue location</li><li class="unchecked">Revert plan documented</li></ul></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="py-3" style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap">
+          <span class="logo" style="font-size:1.1rem">Hansel Davis · Automation Generalist</span>
+          <a href="../contact.html" class="btn">Book audit →</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      [...document.querySelectorAll('.tab-btn')].forEach((btn) => btn.addEventListener('click', () => {
+        const key = btn.dataset.tab;
+        [...document.querySelectorAll('.tab-btn')].forEach((t) => {
+          t.classList.toggle('active', t.dataset.tab === key);
+          t.classList.toggle('btn-outline', t.dataset.tab !== key);
+        });
+        [...document.querySelectorAll('.tab-panel')].forEach((p) => p.style.display = 'none');
+        document.getElementById('tab-' + key).style.display = 'block';
+      }));
+    </script>
+
+    <style>
+      .tabs .active { background: #171717; color: #fff; border-color: #171717; }
+      .doc-body h2 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.015em; margin: 1.4rem 0 .6rem; }
+      .doc-body h3 { font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; margin: 1.2rem 0 .5rem; }
+      .doc-body p { color: #4d4d4d; line-height: 1.6; margin: .6rem 0; }
+      .doc-body ul, .doc-body ol { padding-left: 1.2rem; margin: .5rem 0; }
+      .doc-body li { color: #171717; margin: .25rem 0; }
+      .doc-body li.checked { color: #065f46; }
+      .doc-body li.unchecked { color: #6b7280; }
+      .doc-body code { background: #f3f4f6; padding: 1px 6px; border-radius: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+      .tab-btn { min-width: 120px; justify-content: center; }
+    </style>
+  </body>
+</html>

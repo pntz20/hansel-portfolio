@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project: Multi-Platform Sync · Hansel Davis</title>
+    <link rel="stylesheet" href="../../style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="nav-flex">
+          <div class="logo">Hansel<span style="color: #3b82f6">.dev</span></div>
+          <div class="nav-links">
+            <a href="../../index.html#experience">Back to Portfolio</a>
+            <a href="./index.html" class="resume-tab">This Project</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <span class="hero-badge">📤 case study</span>
+          <h1>
+            Multi-platform sync nightmare →<br />
+            <span class="highlight">silent automation</span>
+          </h1>
+          <p class="hero-sub">
+            Problem: admin re-entered data from 3 SaaS tools daily.<br />
+            Solution: API + webhook pipeline syncing a master sheet with no manual entry.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+            <a href="#demo" class="btn">▶ Live Proof</a>
+            <a href="./docs.html" class="btn-outline btn">📄 Docs</a>
+            <a href="./sop.md" class="btn-outline btn">📎 SOP</a>
+            <a href="./logic.md" class="btn-outline btn">🗺️ Logic</a>
+            <a href="./checks.md" class="btn-outline btn">✅ Checks</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-4" style="background: #f3f6fc">
+        <div class="container">
+          <div class="grid-2">
+            <div class="card">
+              <span class="pill">🧩 before</span>
+              <h3>The friction</h3>
+              <ul>
+                <li>Manual re-entry from 3 disconnected tools</li>
+                <li>Delayed updates across CRM, sheet, and Slack</li>
+                <li>High error rate and missed leads</li>
+              </ul>
+              <div class="result-stat">Time cost: ~9 hrs / week</div>
+            </div>
+            <div class="card">
+              <span class="pill">✅ after</span>
+              <h3>The fix</h3>
+              <ul>
+                <li>Single source of truth: master sheet</li>
+                <li>Event-triggered sync: instant, auditable</li>
+                <li>Alert on failure with retry queue</li>
+              </ul>
+              <div class="result-stat">Saved: 9 hrs / week · zero manual entry</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-4" id="demo">
+        <div class="container">
+          <div class="text-center mb-3">
+            <span class="pill">▶ browser proof</span>
+            <h2 style="font-size: 2rem">Live sync simulator</h2>
+            <p style="color: #4b5563">Click a source event and watch the master sheet + alert panel update.</p>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <h3 style="margin-bottom: 1rem">Trigger an event</h3>
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+                <button class="btn" onclick="fireEvent('form')">New form entry</button>
+                <button class="btn" onclick="fireEvent('crm')" style="background: #3b82f6; border-color: #3b82f6">CRM update</button>
+                <button class="btn" onclick="fireEvent('error')">Simulate failure</button>
+              </div>
+              <div style="margin-top: 1.5rem; background: #f9fafb; border-radius: 16px; padding: 1rem">
+                <div style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.5rem">Event log</div>
+                <pre id="event-log" style="white-space: pre-wrap; font-size: 0.95rem"></pre>
+              </div>
+            </div>
+            <div class="card">
+              <h3 style="margin-bottom: 1rem">Master sheet state</h3>
+              <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem">
+                <thead>
+                  <tr>
+                    <th style="text-align: left; padding: 0.5rem; border-bottom: 1px solid #eef2f6">Name</th>
+                    <th style="text-align: left; padding: 0.5rem; border-bottom: 1px solid #eef2f6">Source</th>
+                    <th style="text-align: left; padding: 0.5rem; border-bottom: 1px solid #eef2f6">Status</th>
+                    <th style="text-align: left; padding: 0.5rem; border-bottom: 1px solid #eef2f6">Updated</th>
+                  </tr>
+                </thead>
+                <tbody id="master-table">
+                  <tr>
+                    <td style="padding: 0.5rem; border-bottom: 1px solid #f3f4f6">—</td>
+                    <td style="padding: 0.5rem; border-bottom: 1px solid #f3f4f6">—</td>
+                    <td style="padding: 0.5rem; border-bottom: 1px solid #f3f4f6">idle</td>
+                    <td style="padding: 0.5rem; border-bottom: 1px solid #f3f4f6">—</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div style="margin-top: 1rem; background: #fef3c7; border-radius: 12px; padding: 0.75rem 1rem; font-size: 0.9rem">
+                Alerts: <span id="alert-panel">no failures</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-4" style="background: #ffffff; border-top: 1px solid #eef2f6; border-bottom: 1px solid #eef2f6">
+        <div class="container">
+          <h2 style="font-size: 2rem">When I talk about this in interviews</h2>
+          <div class="steps" style="margin-top: 1.5rem">
+            <div class="step">
+              <div class="step-number">1</div>
+              <h3>State the pain in one sentence</h3>
+              <p>
+                “Admin was re-entering the same lead/contact fields across 3 tools, which
+                meant updates were hours late and occasionally wrong.”
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <h3>Show the pattern, not the tool</h3>
+              <p>
+                “The pattern is tool-agnostic: normalize schema, route changes by event type, and
+                confirm by alert.”
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <h3>Quantify the outcome</h3>
+              <p>
+                “This pattern recovered about 9 hours a week and eliminated manual re-entry
+                errors entirely.”
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <h3>Mention ownership</h3>
+              <p>
+                “The operator still owns the rules and can change routing without a developer
+                redeploy.”
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div
+          class="py-3"
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+          "
+        >
+          <div>
+            <span class="logo" style="font-size: 1.2rem">Hansel Davis · Automation Generalist</span>
+            <p style="font-size: 0.8rem; color: #6b7280; margin-top: 0.5rem">© 2025</p>
+          </div>
+          <a href="../contact.html" class="btn">Book audit →</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const masterState = [];
+      const logEl = document.getElementById('event-log');
+      const tableEl = document.getElementById('master-table');
+      const alertEl = document.getElementById('alert-panel');
+
+      function log(msg) {
+        const ts = new Date().toISOString().slice(11, 19);
+        logEl.textContent = `[${ts}] ${msg}\n` + logEl.textContent;
+      }
+
+      function render() {
+        if (!masterState.length) {
+          tableEl.innerHTML =
+            `<tr><td style="padding: 0.5rem; border-bottom: 1px solid #f3f4f6">—</td>` +
+            `<td style="padding: 0.5rem; border-bottom: 1px solid #f3f4f6">—</td>` +
+            `<td style="padding: 0.5rem; border-bottom: 1px solid #f3f4f6">idle</td>` +
+            `<td style="padding: 0.5rem; border-bottom: 1px solid #f3f4f6">—</td></tr>`;
+          return;
+        }
+        tableEl.innerHTML = masterState
+          .slice()
+          .reverse()
+          .map(
+            (r) => `<tr>
+              <td style="padding: 0.5rem; border-bottom: 1px solid #f3f4f6">${escapeHtml(r.name)}</td>
+              <td style="padding: 0.5rem; border-bottom: 1px solid #f3f4f6">${escapeHtml(r.source)}</td>
+              <td style="padding: 0.5rem; border-bottom: 1px solid #f3f4f6">${escapeHtml(r.status)}</td>
+              <td style="padding: 0.5rem; border-bottom: 1px solid #f3f4f6">${r.updatedAt}</td>
+            </tr>`
+          )
+          .join('');
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+      }
+
+      function fireEvent(source) {
+        if (source === 'form') {
+          const name = 'Lead_' + Math.floor(Math.random() * 900 + 100);
+          masterState.push({
+            name,
+            source: 'Web form',
+            status: 'synced',
+            updatedAt: new Date().toISOString().slice(11, 19),
+          });
+          log(`Form received: ${name} → synced to master sheet.`);
+        } else if (source === 'crm') {
+          const name = masterState[masterState.length - 1]?.name || 'Existing_Contact';
+          const existing = masterState.find((r) => r.name === name);
+          if (existing) {
+            existing.status = 'updated';
+            existing.updatedAt = new Date().toISOString().slice(11, 19);
+            log(`CRM update for ${name} applied.`);
+          } else {
+            masterState.push({
+              name,
+              source: 'CRM',
+              status: 'synced',
+              updatedAt: new Date().toISOString().slice(11, 19),
+            });
+            log(`CRM record for ${name} added to master sheet.`);
+          }
+        } else if (source === 'error') {
+          const name = masterState[masterState.length - 1]?.name || 'Pending_Record';
+          log(`Sync failed for ${name}. Retry queued.`);
+          alertEl.textContent = `retry queued: ${name}`;
+          setTimeout(() => {
+            alertEl.textContent = 'retry succeeded';
+          }, 1500);
+        }
+        render();
+      }
+
+      log('Simulator ready. Click a trigger to send an event.');
+    </script>
+  </body>
+</html>
